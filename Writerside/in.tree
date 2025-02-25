@@ -7,6 +7,22 @@
                  start-page="Bank.md">
 
     <toc-element topic="Bank.md"/>
-    <toc-element topic="User-Service.md"/>
+    <toc-element topic="API_Reference4.md">
+        <toc-element topic="Get_a_client_by_ID2.md"/>
+        <toc-element topic="Create_Client3.md"/>
+        <toc-element topic="Update_Client3.md"/>
+        <toc-element topic="Fetch_All_Clients2.md"/>
+        <toc-element topic="Get_an_employee_by_ID2.md"/>
+        <toc-element topic="Create_Employee3.md"/>
+        <toc-element topic="Update_Employee2.md"/>
+        <toc-element topic="Fetch_All_Employees2.md"/>
+        <toc-element topic="Fetch_All_Users2.md"/>
+        <toc-element topic="User_Login2.md"/>
+        <toc-element topic="Get_a_user_by_ID3.md"/>
+    </toc-element>
+    <toc-element topic="User-Service.md">
+        <toc-element topic="User.md">
+        </toc-element>
+    </toc-element>
     <toc-element topic="Changelog.md"/>
 </instance-profile>
