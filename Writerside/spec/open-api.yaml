@@ -129,7 +129,7 @@ paths:
           in: query
           schema:
             type: integer
-      response:
+      responses:
         '200':
           description: Users returned.
           content:
@@ -138,6 +138,41 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/UserDto'
+              example:
+                  summary: "Example response with multiple users"
+                  value:
+                    - Id: "550e8400-e29b-41d4-a716-446655440000"
+                      FirstName: "John"
+                      LastName: "Doe"
+                      DateOfBirth: "1990-01-01"
+                      Gender: "Male"
+                      UniqueIdentificationNumber: "0101990123456"
+                      Username: "johndoe"
+                      Email: "johndoe@example.com"
+                      PhoneNumber: "+381641234567"
+                      Address: "123 Main St, Belgrade"
+                      Role: "Employee"
+                      Department: "IT"
+                      CreatedAt: "2024-01-01T12:00:00Z"
+                      ModifiedAt: "2024-01-10T14:30:00Z"
+                      Employed: true
+                      Activated: true
+                    - Id: "660e8400-f29b-51d4-b816-556655440111"
+                      FirstName: "Ana"
+                      LastName: "Petrović"
+                      DateOfBirth: "1995-03-15"
+                      Gender: "Female"
+                      UniqueIdentificationNumber: "1503956123456"
+                      Username: "anap"
+                      Email: "ana.petrovic@example.com"
+                      PhoneNumber: "+381641112233"
+                      Address: "Kneza Miloša 100, Novi Sad"
+                      Role: "Admin"
+                      Department: "HR"
+                      CreatedAt: "2024-02-01T10:15:00Z"
+                      ModifiedAt: "2024-02-15T11:45:00Z"
+                      Employed: true
+                      Activated: false
   /employees:
     post:
       summary: Create Employee
@@ -161,8 +196,14 @@ paths:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/ErrorInvalidEmail'
-                  - $ref: '#/components/schemas/ErrorMissingFields'
+                  - $ref: '#/components/schemas/ErrorFieldRequired'
+                  - $ref: '#/components/schemas/ErrorFieldInvalid'
+                  - $ref: '#/components/schemas/ErrorFieldTooLong'
+                  - $ref: '#/components/schemas/ErrorFieldTooShort'
+                  - $ref: '#/components/schemas/ErrorInvalidDateOfBirth'
+                  - $ref: '#/components/schemas/ErrorUniqueIdentificationNumber'
+                  - $ref: '#/components/schemas/ErrorInvalidGender'
+                  - $ref: '#/components/schemas/ErrorDuplicateUser'
     put:
       summary: Update Employee
       description: An endpoint to update a new employee.
@@ -187,6 +228,10 @@ paths:
                 oneOf:
                   - $ref: '#/components/schemas/ErrorInvalidEmail'
                   - $ref: '#/components/schemas/ErrorMissingFields'
+                  - $ref: '#/components/schemas/ErrorFieldRequired'
+                  - $ref: '#/components/schemas/ErrorFieldInvalid'
+                  - $ref: '#/components/schemas/ErrorFieldTooLong'
+                  - $ref: '#/components/schemas/ErrorFieldTooShort'
     get:
       summary: Fetch all employees
       description: An endpoint to get all employees using filter and pagination.
@@ -226,6 +271,57 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/EmployeeDto'
+              example:
+                  summary: "Example response with multiple employees"
+                  value:
+                    - Id: "550e8400-e29b-41d4-a716-446655440000"
+                      FirstName: "Marko"
+                      LastName: "Jovanović"
+                      DateOfBirth: "1988-04-15"
+                      Gender: "Male"
+                      UniqueIdentificationNumber: "1504885123456"
+                      Username: "markoj"
+                      Email: "marko.jovanovic@example.com"
+                      PhoneNumber: "+381641234567"
+                      Address: "Bulevar Kralja Aleksandra 45, Belgrade"
+                      Role: "Employee"
+                      Department: "Software Development"
+                      CreatedAt: "2024-01-01T09:00:00Z"
+                      ModifiedAt: "2024-02-10T14:30:00Z"
+                      Employed: true
+                      Activated: true
+                    - Id: "660e8400-f29b-51d4-b816-556655440111"
+                      FirstName: "Ana"
+                      LastName: "Petrović"
+                      DateOfBirth: "1992-06-22"
+                      Gender: "Female"
+                      UniqueIdentificationNumber: "2206925123456"
+                      Username: "anap"
+                      Email: "ana.petrovic@example.com"
+                      PhoneNumber: "+381641112233"
+                      Address: "Kneza Miloša 100, Novi Sad"
+                      Role: "Admin"
+                      Department: "HR"
+                      CreatedAt: "2024-02-01T10:15:00Z"
+                      ModifiedAt: "2024-02-15T11:45:00Z"
+                      Employed: true
+                      Activated: false
+                    - Id: "770e8400-d29b-61d4-b926-667755440222"
+                      FirstName: "Milan"
+                      LastName: "Đorđević"
+                      DateOfBirth: "1990-12-05"
+                      Gender: "Male"
+                      UniqueIdentificationNumber: "0512904123456"
+                      Username: "miland"
+                      Email: "milan.djordjevic@example.com"
+                      PhoneNumber: "+381642223344"
+                      Address: "Zmaj Jovina 22, Novi Sad"
+                      Role: "Employee"
+                      Department: "Finance"
+                      CreatedAt: "2024-03-01T08:45:00Z"
+                      ModifiedAt: "2024-03-12T13:30:00Z"
+                      Employed: true
+                      Activated: true
 
   /employees/{id}:
     get:
@@ -287,11 +383,15 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  error:
-                    type: string
-                    example: "Invalid input data."
+                oneOf:
+                  - $ref: '#/components/schemas/ErrorFieldRequired'
+                  - $ref: '#/components/schemas/ErrorFieldInvalid'
+                  - $ref: '#/components/schemas/ErrorFieldTooLong'
+                  - $ref: '#/components/schemas/ErrorFieldTooShort'
+                  - $ref: '#/components/schemas/ErrorInvalidDateOfBirth'
+                  - $ref: '#/components/schemas/ErrorInvalidGender'
+                  - $ref: '#/components/schemas/ErrorUniqueIdentificationNumber'
+                  - $ref: '#/components/schemas/ErrorDuplicateUser'
     put:
       summary: Update Client
       description: An endpoint to update an existing client.
@@ -313,11 +413,11 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  error:
-                    type: string
-                    example: "Invalid input data."
+                oneOf:
+                  - $ref: '#/components/schemas/ErrorFieldRequired'
+                  - $ref: '#/components/schemas/ErrorFieldInvalid'
+                  - $ref: '#/components/schemas/ErrorFieldTooLong'
+                  - $ref: '#/components/schemas/ErrorFieldTooShort'
     get:
       summary: Fetch all clients
       description: An endpoint to get all clients using filter and pagination.
@@ -357,6 +457,48 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/ClientDto'
+              example:
+                  summary: "Example response with multiple clients"
+                  value:
+                    - Id: "660e8400-e29b-41d4-a716-446655440001"
+                      FirstName: "Ana"
+                      LastName: "Petrović"
+                      DateOfBirth: "1995-07-22"
+                      Gender: "Female"
+                      UniqueIdentificationNumber: "2207957123456"
+                      Email: "ana.petrovic@example.com"
+                      PhoneNumber: "+381651234567"
+                      Address: "Kneza Miloša 12, Novi Sad"
+                      Role: "Client"
+                      CreatedAt: "2024-01-15T10:00:00Z"
+                      ModifiedAt: "2024-02-20T12:45:00Z"
+                      Activated: true
+                    - Id: "770e8400-f29b-51d4-b816-556655440002"
+                      FirstName: "Miloš"
+                      LastName: "Jovanović"
+                      DateOfBirth: "1989-03-10"
+                      Gender: "Male"
+                      UniqueIdentificationNumber: "1003896123456"
+                      Email: "milos.jovanovic@example.com"
+                      PhoneNumber: "+381641112233"
+                      Address: "Bulevar Oslobođenja 45, Belgrade"
+                      Role: "Client"
+                      CreatedAt: "2024-02-01T09:30:00Z"
+                      ModifiedAt: "2024-02-18T14:10:00Z"
+                      Activated: false
+                    - Id: "880e8400-a29b-61d4-b926-667755440003"
+                      FirstName: "Jelena"
+                      LastName: "Nikolić"
+                      DateOfBirth: "1992-11-05"
+                      Gender: "Female"
+                      UniqueIdentificationNumber: "0511924123456"
+                      Email: "jelena.nikolic@example.com"
+                      PhoneNumber: "+381642223344"
+                      Address: "Zmaj Jovina 5, Novi Sad"
+                      Role: "Client"
+                      CreatedAt: "2024-03-05T08:45:00Z"
+                      ModifiedAt: "2024-03-12T13:30:00Z"
+                      Activated: true
   /clients/{id}:
     get:
       summary: Get a client by ID
@@ -943,6 +1085,7 @@ components:
         CreatedAt: "2024-01-15T10:00:00Z"
         ModifiedAt: "2024-02-20T12:45:00Z"
         Activated: true
+
     ErrorInvalidEmail:
     type: object
     properties:
@@ -977,3 +1120,116 @@ components:
         message:
           type: string
           example: "A user with the same email already exists."
+
+    ErrorFieldRequired:
+      type: object
+      properties:
+        errorCode:
+          type: string
+          example: "FIELD_REQUIRED"
+        field:
+          type: string
+          example: "firstName"
+        message:
+          type: string
+          example: "First name is required."
+
+    ErrorFieldInvalid:
+      type: object
+      properties:
+        errorCode:
+          type: string
+          example: "FIELD_INVALID"
+        field:
+          type: string
+          example: "phoneNumber"
+        message:
+          type: string
+          example: "Phone number is not valid."
+
+    ErrorFieldTooLong:
+      type: object
+      properties:
+        errorCode:
+          type: string
+          example: "FIELD_TOO_LONG"
+        field:
+          type: string
+          example: "lastName"
+        maxLength:
+          type: integer
+          example: 32
+        message:
+          type: string
+          example: "Last name must be at most 32 characters long."
+
+    ErrorFieldTooShort:
+      type: object
+      properties:
+        errorCode:
+          type: string
+          example: "FIELD_TOO_SHORT"
+        field:
+          type: string
+          example: "phoneNumber"
+        minLength:
+          type: integer
+          example: 10
+        message:
+          type: string
+          example: "Phone number does not have enough digits."
+
+    ErrorInvalidDateOfBirth:
+      type: object
+      properties:
+        errorCode:
+          type: string
+          example: "INVALID_DATE_OF_BIRTH"
+        field:
+          type: string
+          example: "dateOfBirth"
+        message:
+          type: string
+          example: "Date of birth is not valid."
+
+    ErrorInvalidGender:
+      type: object
+      properties:
+        errorCode:
+          type: string
+          example: "INVALID_GENDER"
+        field:
+          type: string
+          example: "gender"
+        allowedValues:
+          type: array
+          items:
+            type: string
+          example: [ "Male", "Female" ]
+        message:
+          type: string
+          example: "Gender must be either 'Male' or 'Female'."
+
+    ErrorUniqueIdentificationNumber:
+      type: object
+      properties:
+        errorCode:
+          type: string
+          example: "INVALID_UNIQUE_IDENTIFICATION_NUMBER"
+        field:
+          type: string
+          example: "uniqueIdentificationNumber"
+        message:
+          type: string
+          example: "Unique identification number does not have a valid format."
+        subErrors:
+          type: array
+          items:
+            type: object
+            properties:
+              errorCode:
+                type: string
+                example: "INVALID_CONTROL_DIGIT"
+              message:
+                type: string
+                example: "Unique identification number does not have a valid control digit."
