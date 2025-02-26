@@ -10,4 +10,160 @@
         <description>Created after removal of "Starter" from Bank</description>
         <accepts>starter.html</accepts>
     </rule>
+    <rule id="2df68be5">
+        <description>Created after removal of "Get User" from Bank</description>
+        <accepts>Get_User.html</accepts>
+    </rule>
+    <rule id="4c4a12b1">
+        <description>Created after removal of "API Reference" from Bank</description>
+        <accepts>API_Reference.html</accepts>
+    </rule>
+    <rule id="60dc7765">
+        <description>Created after removal of "Delete a user by ID" from Bank</description>
+        <accepts>Delete_a_user_by_ID.html</accepts>
+    </rule>
+    <rule id="1931909d">
+        <description>Created after removal of "Update a user by ID" from Bank</description>
+        <accepts>Update_a_user_by_ID.html</accepts>
+    </rule>
+    <rule id="75c54a1a">
+        <description>Created after removal of "Get a user by ID" from Bank</description>
+        <accepts>Get_a_user_by_ID.html</accepts>
+    </rule>
+    <rule id="5071a6af">
+        <description>Created after removal of "Create a new user" from Bank</description>
+        <accepts>Create_a_new_user.html</accepts>
+    </rule>
+    <rule id="6320e4eb">
+        <description>Created after removal of "List all users" from Bank</description>
+        <accepts>List_all_users.html</accepts>
+    </rule>
+    <rule id="3ef0e601">
+        <description>Created after removal of "API Reference" from Bank</description>
+        <accepts>API_Reference.html</accepts>
+    </rule>
+    <rule id="466cc038">
+        <description>Created after removal of "User Login" from Bank</description>
+        <accepts>User_Login.html</accepts>
+    </rule>
+    <rule id="23782caf">
+        <description>Created after removal of "Get User by ID" from Bank</description>
+        <accepts>Get_User_by_ID.html</accepts>
+    </rule>
+    <rule id="15e250f5">
+        <description>Created after removal of "API Reference" from Bank</description>
+        <accepts>API_Reference.html</accepts>
+    </rule>
+    <rule id="304db723">
+        <description>Created after removal of "Get Client by ID" from Bank</description>
+        <accepts>Get_Client_by_ID.html</accepts>
+    </rule>
+    <rule id="2bbf89b8">
+        <description>Created after removal of "Get Employee by ID" from Bank</description>
+        <accepts>Get_Employee_by_ID.html</accepts>
+    </rule>
+    <rule id="f144486">
+        <description>Created after removal of "Get User by ID" from Bank</description>
+        <accepts>Get_User_by_ID.html</accepts>
+    </rule>
+    <rule id="20e361fe">
+        <description>Created after removal of "Fetch All Clients" from Bank</description>
+        <accepts>Fetch_All_Clients.html</accepts>
+    </rule>
+    <rule id="a22b1d2">
+        <description>Created after removal of "Fetch All Employees" from Bank</description>
+        <accepts>Fetch_All_Employees.html</accepts>
+    </rule>
+    <rule id="442302bb">
+        <description>Created after removal of "Fetch All Users" from Bank</description>
+        <accepts>Fetch_All_Users.html</accepts>
+    </rule>
+    <rule id="1efc0c2f">
+        <description>Created after removal of "API Reference" from Bank</description>
+        <accepts>API_Reference.html</accepts>
+    </rule>
+    <rule id="237c2b5">
+        <description>Created after removal of "Create Client" from Bank</description>
+        <accepts>Create_Client.html</accepts>
+    </rule>
+    <rule id="54e06987">
+        <description>Created after removal of "Update Client" from Bank</description>
+        <accepts>Update_Client.html</accepts>
+    </rule>
+    <rule id="406a15a1">
+        <description>Created after removal of "Fetch All Clients" from Bank</description>
+        <accepts>Fetch_All_Clients2.html</accepts>
+    </rule>
+    <rule id="6e004cdb">
+        <description>Created after removal of "Create Employee" from Bank</description>
+        <accepts>Create_Employee.html</accepts>
+    </rule>
+    <rule id="f7e1485">
+        <description>Created after removal of "Update Employee" from Bank</description>
+        <accepts>Update_Employee.html</accepts>
+    </rule>
+    <rule id="5ad76846">
+        <description>Created after removal of "Fetch All Employees" from Bank</description>
+        <accepts>Fetch_All_Employees2.html</accepts>
+    </rule>
+    <rule id="b76aa02">
+        <description>Created after removal of "Fetch All Users" from Bank</description>
+        <accepts>Fetch_All_Users2.html</accepts>
+    </rule>
+    <rule id="4e366f3c">
+        <description>Created after removal of "API Reference" from Bank</description>
+        <accepts>API_Reference2.html</accepts>
+    </rule>
+    <rule id="7c40858f">
+        <description>Created after removal of "Get a client by ID" from Bank</description>
+        <accepts>Get_a_client_by_ID.html</accepts>
+    </rule>
+    <rule id="7886e155">
+        <description>Created after removal of "Create Client" from Bank</description>
+        <accepts>Create_Client2.html</accepts>
+    </rule>
+    <rule id="5cfc2fad">
+        <description>Created after removal of "Update Client" from Bank</description>
+        <accepts>Update_Client2.html</accepts>
+    </rule>
+    <rule id="51567f99">
+        <description>Created after removal of "Fetch all clients" from Bank</description>
+        <accepts>Fetch_all_clients.html</accepts>
+    </rule>
+    <rule id="176d22c0">
+        <description>Created after removal of "Get an employee by ID" from Bank</description>
+        <accepts>Get_an_employee_by_ID.html</accepts>
+    </rule>
+    <rule id="38359858">
+        <description>Created after removal of "Create Employee" from Bank</description>
+        <accepts>Create_Employee2.html</accepts>
+    </rule>
+    <rule id="28ced602">
+        <description>Created after removal of "/employees PUT" from Bank</description>
+        <accepts>employees_PUT.html</accepts>
+    </rule>
+    <rule id="3b2627a5">
+        <description>Created after removal of "Fetch all employees" from Bank</description>
+        <accepts>Fetch_all_employees.html</accepts>
+    </rule>
+    <rule id="1e8d029">
+        <description>Created after removal of "Fetch all users" from Bank</description>
+        <accepts>Fetch_all_users.html</accepts>
+    </rule>
+    <rule id="62a72ff4">
+        <description>Created after removal of "User Login" from Bank</description>
+        <accepts>User_Login.html</accepts>
+    </rule>
+    <rule id="36bdbb88">
+        <description>Created after removal of "Get a user by ID" from Bank</description>
+        <accepts>Get_a_user_by_ID2.html</accepts>
+    </rule>
+    <rule id="54b984e7">
+        <description>Created after removal of "API Reference" from Bank</description>
+        <accepts>API_Reference3.html</accepts>
+    </rule>
+    <rule id="11bc700f">
+        <description>Created after removal of "Get User" from Bank</description>
+        <accepts>Get-User.html</accepts>
+    </rule>
 </rules>
