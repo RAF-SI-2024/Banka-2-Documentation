@@ -1,0 +1,3 @@
+:root {
+  --wh-max-width: calc(1820px - var(--wh-gap-m)* 2);
+}

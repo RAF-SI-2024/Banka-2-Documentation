@@ -1,0 +1,1055 @@
+---
+openapi: 3.0.1
+info:
+  title: UserService
+  version: v1
+paths:
+  "/api/v1/clients":
+    get:
+      tags:
+        - Client
+      parameters:
+        - name: Email
+          in: query
+          schema:
+            type: string
+        - name: FirstName
+          in: query
+          schema:
+            type: string
+        - name: LastName
+          in: query
+          schema:
+            type: string
+        - name: Role
+          in: query
+          schema:
+            "$ref": "#/components/schemas/Role"
+        - name: Page
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: Size
+          in: query
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ClientResponsePage"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ClientResponsePage"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ClientResponsePage"
+    post:
+      tags:
+        - Client
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/ClientCreateRequest"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/ClientCreateRequest"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/ClientCreateRequest"
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ClientResponse"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ClientResponse"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ClientResponse"
+  "/api/v1/clients/{id}":
+    get:
+      tags:
+        - Client
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ClientResponse"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ClientResponse"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ClientResponse"
+    put:
+      tags:
+        - Client
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/ClientUpdateRequest"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/ClientUpdateRequest"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/ClientUpdateRequest"
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ClientResponse"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ClientResponse"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ClientResponse"
+  "/api/v1/employees":
+    get:
+      tags:
+        - Employee
+      parameters:
+        - name: Email
+          in: query
+          schema:
+            type: string
+        - name: FirstName
+          in: query
+          schema:
+            type: string
+        - name: LastName
+          in: query
+          schema:
+            type: string
+        - name: Role
+          in: query
+          schema:
+            "$ref": "#/components/schemas/Role"
+        - name: Page
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: Size
+          in: query
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/EmployeeResponsePage"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/EmployeeResponsePage"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/EmployeeResponsePage"
+    post:
+      tags:
+        - Employee
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/EmployeeCreateRequest"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/EmployeeCreateRequest"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/EmployeeCreateRequest"
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/EmployeeResponse"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/EmployeeResponse"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/EmployeeResponse"
+  "/api/v1/employees/{id}":
+    get:
+      tags:
+        - Employee
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/EmployeeResponse"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/EmployeeResponse"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/EmployeeResponse"
+    put:
+      tags:
+        - Employee
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/EmployeeUpdateRequest"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/EmployeeUpdateRequest"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/EmployeeUpdateRequest"
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/EmployeeResponse"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/EmployeeResponse"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/EmployeeResponse"
+  "/api/v1/users":
+    get:
+      tags:
+        - User
+      parameters:
+        - name: Email
+          in: query
+          schema:
+            type: string
+        - name: FirstName
+          in: query
+          schema:
+            type: string
+        - name: LastName
+          in: query
+          schema:
+            type: string
+        - name: Role
+          in: query
+          schema:
+            "$ref": "#/components/schemas/Role"
+        - name: Page
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: Size
+          in: query
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/UserResponsePage"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/UserResponsePage"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/UserResponsePage"
+  "/api/v1/users/{id}":
+    get:
+      tags:
+        - User
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/UserResponse"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/UserResponse"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/UserResponse"
+  "/api/v1/users/login":
+    post:
+      tags:
+        - User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/UserLoginRequest"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/UserLoginRequest"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/UserLoginRequest"
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/UserLoginResponse"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/UserLoginResponse"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/UserLoginResponse"
+  "/api/v1/users/activate":
+    post:
+      tags:
+        - User
+      parameters:
+        - name: token
+          in: query
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/UserActivationRequest"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/UserActivationRequest"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/UserActivationRequest"
+      responses:
+        '200':
+          description: OK
+  "/api/v1/users/password-reset/request":
+    post:
+      tags:
+        - User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/UserRequestPasswordResetRequest"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/UserRequestPasswordResetRequest"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/UserRequestPasswordResetRequest"
+      responses:
+        '200':
+          description: OK
+  "/api/v1/users/password-reset":
+    post:
+      tags:
+        - User
+      parameters:
+        - name: token
+          in: query
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/UserPasswordResetRequest"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/UserPasswordResetRequest"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/UserPasswordResetRequest"
+      responses:
+        '200':
+          description: OK
+components:
+  schemas:
+    AccountSimpleResponse:
+      required:
+        - accountNumber
+        - id
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        accountNumber:
+          type: string
+          nullable: true
+      additionalProperties: false
+      example:
+        id: 8cf284fa-d8f2-44f5-872a-cfa47a0f7199
+        accountNumber: 222-0001123456789-10
+    ClientCreateRequest:
+      required:
+        - address
+        - dateOfBirth
+        - email
+        - firstName
+        - gender
+        - lastName
+        - phoneNumber
+        - uniqueIdentificationNumber
+      type: object
+      properties:
+        firstName:
+          type: string
+          nullable: true
+        lastName:
+          type: string
+          nullable: true
+        dateOfBirth:
+          type: string
+          format: date
+        gender:
+          "$ref": "#/components/schemas/Gender"
+        uniqueIdentificationNumber:
+          type: string
+          nullable: true
+        email:
+          type: string
+          nullable: true
+        phoneNumber:
+          type: string
+          nullable: true
+        address:
+          type: string
+          nullable: true
+      additionalProperties: false
+      example:
+        firstName: Aleksandar
+        lastName: Ivanović
+        dateOfBirth: '1995-07-12'
+        gender: 1
+        uniqueIdentificationNumber: '1207995710029'
+        email: aleksandar.ivanovic@gmail.com
+        phoneNumber: "+381698812321"
+        address: Kralja Petra 12
+    ClientResponse:
+      required:
+        - accounts
+        - activated
+        - address
+        - createdAt
+        - dateOfBirth
+        - email
+        - firstName
+        - gender
+        - id
+        - lastName
+        - modifiedAt
+        - phoneNumber
+        - role
+        - uniqueIdentificationNumber
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        firstName:
+          type: string
+          nullable: true
+        lastName:
+          type: string
+          nullable: true
+        dateOfBirth:
+          type: string
+          format: date
+        gender:
+          "$ref": "#/components/schemas/Gender"
+        uniqueIdentificationNumber:
+          type: string
+          nullable: true
+        email:
+          type: string
+          nullable: true
+        phoneNumber:
+          type: string
+          nullable: true
+        address:
+          type: string
+          nullable: true
+        role:
+          "$ref": "#/components/schemas/Role"
+        accounts:
+          type: array
+          items:
+            "$ref": "#/components/schemas/AccountSimpleResponse"
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+        modifiedAt:
+          type: string
+          format: date-time
+        activated:
+          type: boolean
+      additionalProperties: false
+      example:
+        id: f39d319e-db3e-4af5-bada-6bcb908b29e3
+        firstName: Aleksandar
+        lastName: Ivanović
+        dateOfBirth: '1995-07-12'
+        gender: 1
+        uniqueIdentificationNumber: '1207995710029'
+        email: aleksandar.ivanovic@gmail.com
+        phoneNumber: "+381698812321"
+        address: Kralja Petra 12
+        role: 3
+        accounts:
+          - id: 8cf284fa-d8f2-44f5-872a-cfa47a0f7199
+            accountNumber: 222-0001123456789-10
+        createdAt: '2025-01-22T13:15:12.0000000+01:00'
+        modifiedAt: '2025-01-29T10:24:13.0000000+01:00'
+        activated: true
+    ClientResponsePage:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            "$ref": "#/components/schemas/ClientResponse"
+          nullable: true
+        pageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalElements:
+          type: integer
+          format: int32
+        totalPages:
+          type: integer
+          format: int32
+          readOnly: true
+      additionalProperties: false
+    ClientUpdateRequest:
+      required:
+        - activated
+        - address
+        - firstName
+        - lastName
+        - phoneNumber
+      type: object
+      properties:
+        firstName:
+          type: string
+          nullable: true
+        lastName:
+          type: string
+          nullable: true
+        phoneNumber:
+          type: string
+          nullable: true
+        address:
+          type: string
+          nullable: true
+        activated:
+          type: boolean
+      additionalProperties: false
+      example:
+        firstName: Aleksandar
+        lastName: Ivanović
+        phoneNumber: "+381698812321"
+        address: Kralja Petra 12
+        activated: true
+    EmployeeCreateRequest:
+      required:
+        - address
+        - dateOfBirth
+        - department
+        - email
+        - employed
+        - firstName
+        - gender
+        - lastName
+        - phoneNumber
+        - role
+        - uniqueIdentificationNumber
+        - username
+      type: object
+      properties:
+        firstName:
+          type: string
+          nullable: true
+        lastName:
+          type: string
+          nullable: true
+        dateOfBirth:
+          type: string
+          format: date
+        gender:
+          "$ref": "#/components/schemas/Gender"
+        uniqueIdentificationNumber:
+          type: string
+          nullable: true
+        username:
+          type: string
+          nullable: true
+        email:
+          type: string
+          nullable: true
+        phoneNumber:
+          type: string
+          nullable: true
+        address:
+          type: string
+          nullable: true
+        role:
+          "$ref": "#/components/schemas/Role"
+        department:
+          type: string
+          nullable: true
+        employed:
+          type: boolean
+      additionalProperties: false
+      example:
+        firstName: Nikola
+        lastName: Jovanović
+        dateOfBirth: '2005-05-17'
+        gender: 1
+        uniqueIdentificationNumber: '1705005710032'
+        username: nikolaj
+        email: nikola.jovanovic@example.com
+        phoneNumber: "+381632318592"
+        address: Kneza Miloša 88
+        role: 2
+        department: HR
+        employed: true
+    EmployeeResponse:
+      required:
+        - activated
+        - address
+        - createdAt
+        - dateOfBirth
+        - department
+        - email
+        - employed
+        - firstName
+        - gender
+        - id
+        - lastName
+        - modifiedAt
+        - phoneNumber
+        - role
+        - uniqueIdentificationNumber
+        - username
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        firstName:
+          type: string
+          nullable: true
+        lastName:
+          type: string
+          nullable: true
+        dateOfBirth:
+          type: string
+          format: date
+        gender:
+          "$ref": "#/components/schemas/Gender"
+        uniqueIdentificationNumber:
+          type: string
+          nullable: true
+        username:
+          type: string
+          nullable: true
+        email:
+          type: string
+          nullable: true
+        phoneNumber:
+          type: string
+          nullable: true
+        address:
+          type: string
+          nullable: true
+        role:
+          "$ref": "#/components/schemas/Role"
+        department:
+          type: string
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+        modifiedAt:
+          type: string
+          format: date-time
+        employed:
+          type: boolean
+        activated:
+          type: boolean
+      additionalProperties: false
+      example:
+        id: ae45452a-81fa-413b-9a3f-4e044ff13939
+        firstName: Nikola
+        lastName: Jovanović
+        dateOfBirth: '2005-05-17'
+        gender: 1
+        uniqueIdentificationNumber: '1705005710032'
+        username: nikolaj
+        email: nikola.jovanovic@example.com
+        phoneNumber: "+381632318592"
+        address: Kneza Miloša 88
+        role: 2
+        department: HR
+        createdAt: '2025-02-26T18:00:00.0000000+01:00'
+        modifiedAt: '2025-02-28T19:17:10.0000000+01:00'
+        employed: true
+        activated: true
+    EmployeeResponsePage:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            "$ref": "#/components/schemas/EmployeeResponse"
+          nullable: true
+        pageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalElements:
+          type: integer
+          format: int32
+        totalPages:
+          type: integer
+          format: int32
+          readOnly: true
+      additionalProperties: false
+    EmployeeUpdateRequest:
+      required:
+        - activated
+        - address
+        - department
+        - employed
+        - firstName
+        - lastName
+        - phoneNumber
+        - role
+        - username
+      type: object
+      properties:
+        firstName:
+          type: string
+          nullable: true
+        lastName:
+          type: string
+          nullable: true
+        username:
+          type: string
+          nullable: true
+        phoneNumber:
+          type: string
+          nullable: true
+        address:
+          type: string
+          nullable: true
+        role:
+          "$ref": "#/components/schemas/Role"
+        department:
+          type: string
+          nullable: true
+        employed:
+          type: boolean
+        activated:
+          type: boolean
+      additionalProperties: false
+      example:
+        firstName: Nikola
+        lastName: Jovanović
+        username: nikolaj
+        phoneNumber: "+381632318592"
+        address: Kneza Miloša 88
+        role: 2
+        department: HR
+        employed: true
+        activated: false
+    Gender:
+      enum:
+        - 0
+        - 1
+        - 2
+      type: integer
+      format: int32
+    Role:
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+      type: integer
+      format: int32
+    UserActivationRequest:
+      required:
+        - confirmPassword
+        - password
+      type: object
+      properties:
+        password:
+          type: string
+          nullable: true
+        confirmPassword:
+          type: string
+          nullable: true
+      additionalProperties: false
+      example:
+        password: M4rk0Petrovic@2024
+        confirmPassword: M4rk0Petrovic@2024
+    UserLoginRequest:
+      required:
+        - email
+        - password
+      type: object
+      properties:
+        email:
+          type: string
+          nullable: true
+        password:
+          type: string
+          nullable: true
+      additionalProperties: false
+      example:
+        email: marko.petrovic@example.com
+        password: M4rk0Petrovic@2024
+    UserLoginResponse:
+      required:
+        - token
+        - user
+      type: object
+      properties:
+        token:
+          type: string
+          nullable: true
+        user:
+          "$ref": "#/components/schemas/UserResponse"
+      additionalProperties: false
+      example:
+        token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDA3ODIyNjAsImlkIjoiNjFlMTY1OTMtM2EyNC00ZDVkLTg3MmMtMTdlMjJhMzQxZDMzIiwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzQwNzgwNDYwLCJuYmYiOjE3NDA3ODA0NjB9.3DsroWriDMpHvuBNOSAiFq8gxdo4TEkc9WK1r2f0Ou0
+        user:
+          id: 73b8f8ee-ff51-4247-b65b-52b8b9a494e5
+          firstName: Marko
+          lastName: Petrović
+          dateOfBirth: '1995-07-21'
+          gender: 1
+          uniqueIdentificationNumber: '2107953710020'
+          username: markop
+          email: marko.petrovic@example.com
+          phoneNumber: "+381641234567"
+          address: Kraljice Natalije 45
+          role: 1
+          department: IT department
+          accounts:
+            - id: 8cf284fa-d8f2-44f5-872a-cfa47a0f7199
+              accountNumber: 222-0001123456789-10
+          createdAt: '2024-10-15T09:30:00.0000000+02:00'
+          modifiedAt: '2025-02-28T12:45:00.0000000+01:00'
+          activated: true
+    UserPasswordResetRequest:
+      required:
+        - confirmPassword
+        - password
+      type: object
+      properties:
+        password:
+          type: string
+          nullable: true
+        confirmPassword:
+          type: string
+          nullable: true
+      additionalProperties: false
+      example:
+        password: M4rk0Petrovic@2024
+        confirmPassword: M4rk0Petrovic@2024
+    UserRequestPasswordResetRequest:
+      required:
+        - email
+      type: object
+      properties:
+        email:
+          type: string
+          nullable: true
+      additionalProperties: false
+      example:
+        Email: marko.petrovic@example.com
+    UserResponse:
+      required:
+        - accounts
+        - activated
+        - address
+        - createdAt
+        - dateOfBirth
+        - department
+        - email
+        - firstName
+        - gender
+        - id
+        - lastName
+        - modifiedAt
+        - phoneNumber
+        - role
+        - uniqueIdentificationNumber
+        - username
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        firstName:
+          type: string
+          nullable: true
+        lastName:
+          type: string
+          nullable: true
+        dateOfBirth:
+          type: string
+          format: date
+        gender:
+          "$ref": "#/components/schemas/Gender"
+        uniqueIdentificationNumber:
+          type: string
+          nullable: true
+        username:
+          type: string
+          nullable: true
+        email:
+          type: string
+          nullable: true
+        phoneNumber:
+          type: string
+          nullable: true
+        address:
+          type: string
+          nullable: true
+        role:
+          "$ref": "#/components/schemas/Role"
+        department:
+          type: string
+          nullable: true
+        accounts:
+          type: array
+          items:
+            "$ref": "#/components/schemas/AccountSimpleResponse"
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+        modifiedAt:
+          type: string
+          format: date-time
+        activated:
+          type: boolean
+      additionalProperties: false
+      example:
+        id: 73b8f8ee-ff51-4247-b65b-52b8b9a494e5
+        firstName: Marko
+        lastName: Petrović
+        dateOfBirth: '1995-07-21'
+        gender: 1
+        uniqueIdentificationNumber: '2107953710020'
+        username: markop
+        email: marko.petrovic@example.com
+        phoneNumber: "+381641234567"
+        address: Kraljice Natalije 45
+        role: 1
+        department: IT department
+        accounts:
+          - id: 8cf284fa-d8f2-44f5-872a-cfa47a0f7199
+            accountNumber: 222-0001123456789-10
+        createdAt: '2024-10-15T09:30:00.0000000+02:00'
+        modifiedAt: '2025-02-28T12:45:00.0000000+01:00'
+        activated: true
+    UserResponsePage:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            "$ref": "#/components/schemas/UserResponse"
+          nullable: true
+        pageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalElements:
+          type: integer
+          format: int32
+        totalPages:
+          type: integer
+          format: int32
+          readOnly: true
+      additionalProperties: false
+  securitySchemes:
+    Bearer:
+      type: apiKey
+      description: 'Authorization: Bearer {token}'
+      name: Authorization
+      in: header
+security:
+  - Bearer: []
