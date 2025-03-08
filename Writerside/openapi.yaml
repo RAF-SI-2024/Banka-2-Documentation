@@ -4,6 +4,546 @@ info:
   title: UserService
   version: v1
 paths:
+  "/api/v1/accounts":
+    get:
+      tags:
+        - Account
+      parameters:
+        - name: Number
+          in: query
+          schema:
+            type: string
+        - name: ClientEmail
+          in: query
+          schema:
+            type: string
+        - name: ClientLastName
+          in: query
+          schema:
+            type: string
+        - name: ClientFirstName
+          in: query
+          schema:
+            type: string
+        - name: EmployeeEmail
+          in: query
+          schema:
+            type: string
+        - name: CurrencyName
+          in: query
+          schema:
+            type: string
+        - name: AccountTypeName
+          in: query
+          schema:
+            type: string
+        - name: Status
+          in: query
+          schema:
+            type: boolean
+        - name: Page
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: Size
+          in: query
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/AccountResponsePage"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/AccountResponsePage"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/AccountResponsePage"
+    post:
+      tags:
+        - Account
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/AccountCreateRequest"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/AccountCreateRequest"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/AccountCreateRequest"
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/AccountResponse"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/AccountResponse"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/AccountResponse"
+  "/api/v1/accounts/{id}":
+    get:
+      tags:
+        - Account
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/AccountResponse"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/AccountResponse"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/AccountResponse"
+  "/api/v1/accounts/client/{id}":
+    put:
+      tags:
+        - Account
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/AccountUpdateClientRequest"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/AccountUpdateClientRequest"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/AccountUpdateClientRequest"
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/AccountResponse"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/AccountResponse"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/AccountResponse"
+  "/api/v1/accounts/employee/{id}":
+    put:
+      tags:
+        - Account
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/AccountUpdateEmployeeRequest"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/AccountUpdateEmployeeRequest"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/AccountUpdateEmployeeRequest"
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/AccountResponse"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/AccountResponse"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/AccountResponse"
+  "/api/v1/accounts/currencies":
+    get:
+      tags:
+        - AccountCurrency
+      parameters:
+        - name: Page
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: Size
+          in: query
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/AccountCurrencyResponsePage"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/AccountCurrencyResponsePage"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/AccountCurrencyResponsePage"
+    post:
+      tags:
+        - AccountCurrency
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/AccountCurrencyCreateRequest"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/AccountCurrencyCreateRequest"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/AccountCurrencyCreateRequest"
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/AccountCurrencyResponse"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/AccountCurrencyResponse"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/AccountCurrencyResponse"
+  "/api/v1/accounts/currencies/{id}":
+    get:
+      tags:
+        - AccountCurrency
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/AccountCurrencyResponse"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/AccountCurrencyResponse"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/AccountCurrencyResponse"
+  "/api/v1/accounts/currencies/client/{id}":
+    put:
+      tags:
+        - AccountCurrency
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/AccountCurrencyClientUpdateRequest"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/AccountCurrencyClientUpdateRequest"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/AccountCurrencyClientUpdateRequest"
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/AccountCurrencyResponse"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/AccountCurrencyResponse"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/AccountCurrencyResponse"
+  "/api/v1/accounts/types":
+    get:
+      tags:
+        - AccountType
+      parameters:
+        - name: Name
+          in: query
+          schema:
+            type: string
+        - name: Code
+          in: query
+          schema:
+            type: string
+        - name: Page
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: Size
+          in: query
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/AccountTypeResponsePage"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/AccountTypeResponsePage"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/AccountTypeResponsePage"
+  "/api/v1/accounts/types/{id}":
+    get:
+      tags:
+        - AccountType
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/AccountTypeResponse"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/AccountTypeResponse"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/AccountTypeResponse"
+  "/api/v1/cards/{id}":
+    get:
+      tags:
+        - Card
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  "/api/v1/cards":
+    get:
+      tags:
+        - Card
+      parameters:
+        - name: Number
+          in: query
+          schema:
+            type: string
+        - name: Name
+          in: query
+          schema:
+            type: string
+        - name: Page
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: Size
+          in: query
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+    post:
+      tags:
+        - Card
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/CardCreateRequest"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/CardCreateRequest"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/CardCreateRequest"
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/CardResponse"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/CardResponse"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/CardResponse"
+  "/api/v1/cards/status/{id}":
+    put:
+      tags:
+        - Card
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/CardStatusUpdateRequest"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/CardStatusUpdateRequest"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/CardStatusUpdateRequest"
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/CardResponse"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/CardResponse"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/CardResponse"
+  "/api/v1/cards/limit/{id}":
+    put:
+      tags:
+        - Card
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/CardLimitUpdateRequest"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/CardLimitUpdateRequest"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/CardLimitUpdateRequest"
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/CardResponse"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/CardResponse"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/CardResponse"
+  "/api/v1/cards/types/{id}":
+    get:
+      tags:
+        - CardType
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  "/api/v1/cards/types":
+    get:
+      tags:
+        - CardType
+      parameters:
+        - name: Name
+          in: query
+          schema:
+            type: string
+        - name: Page
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: Size
+          in: query
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
   "/api/v1/clients":
     get:
       tags:
@@ -133,6 +673,255 @@ paths:
             text/json:
               schema:
                 "$ref": "#/components/schemas/ClientResponse"
+  "/api/v1/companies":
+    get:
+      tags:
+        - Company
+      parameters:
+        - name: Name
+          in: query
+          schema:
+            type: string
+        - name: RegistrationNumber
+          in: query
+          schema:
+            type: string
+        - name: TaxIdentificationNumber
+          in: query
+          schema:
+            type: string
+        - name: Page
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: Size
+          in: query
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/CompanyResponsePage"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/CompanyResponsePage"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/CompanyResponsePage"
+    post:
+      tags:
+        - Company
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/CompanyCreateRequest"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/CompanyCreateRequest"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/CompanyCreateRequest"
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/CompanyResponse"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/CompanyResponse"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/CompanyResponse"
+  "/api/v1/companies/{id}":
+    get:
+      tags:
+        - Company
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/CompanyResponse"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/CompanyResponse"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/CompanyResponse"
+    put:
+      tags:
+        - Company
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/CompanyUpdateRequest"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/CompanyUpdateRequest"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/CompanyUpdateRequest"
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/CompanyResponse"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/CompanyResponse"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/CompanyResponse"
+  "/api/v1/countries":
+    get:
+      tags:
+        - Country
+      parameters:
+        - name: Name
+          in: query
+          schema:
+            type: string
+        - name: CurrencyName
+          in: query
+          schema:
+            type: string
+        - name: CurrencyCode
+          in: query
+          schema:
+            type: string
+        - name: Page
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: Size
+          in: query
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/CountryResponsePage"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/CountryResponsePage"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/CountryResponsePage"
+  "/api/v1/countries/{id}":
+    get:
+      tags:
+        - Country
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/CountryResponse"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/CountryResponse"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/CountryResponse"
+  "/api/v1/currencies":
+    get:
+      tags:
+        - Currency
+      parameters:
+        - name: Name
+          in: query
+          schema:
+            type: string
+        - name: Code
+          in: query
+          schema:
+            type: string
+        - name: Page
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: Size
+          in: query
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/CurrencyResponsePage"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/CurrencyResponsePage"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/CurrencyResponsePage"
+  "/api/v1/currencies/{id}":
+    get:
+      tags:
+        - Currency
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/CurrencyResponse"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/CurrencyResponse"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/CurrencyResponse"
   "/api/v1/employees":
     get:
       tags:
@@ -424,6 +1213,402 @@ paths:
           description: OK
 components:
   schemas:
+    AccountCreateRequest:
+      required:
+        - accountTypeId
+        - balance
+        - clientId
+        - currencyId
+        - dailyLimit
+        - monthlyLimit
+        - name
+        - status
+      type: object
+      properties:
+        name:
+          type: string
+          nullable: true
+        dailyLimit:
+          type: number
+          format: double
+        clientId:
+          type: string
+          format: uuid
+        balance:
+          type: number
+          format: double
+        currencyId:
+          type: string
+          format: uuid
+        accountTypeId:
+          type: string
+          format: uuid
+        monthlyLimit:
+          type: number
+          format: double
+        status:
+          type: boolean
+      additionalProperties: false
+      example:
+        name: Štedni račun
+        dailyLimit: 2000
+        monthlyLimit: 50000
+        clientId: f39d319e-db3e-4af5-bada-6bcb908b29e3
+        balance: 5000.75
+        currencyId: e8ea1dd5-45a4-4837-9bd6-f41b049217f5
+        accountTypeId: 1e94b664-de60-490c-94c2-c2952b9e9e22
+        status: true
+    AccountCurrencyClientUpdateRequest:
+      required:
+        - dailyLimit
+        - monthlyLimit
+      type: object
+      properties:
+        dailyLimit:
+          type: number
+          format: double
+        monthlyLimit:
+          type: number
+          format: double
+      additionalProperties: false
+      example:
+        dailyLimit: 500
+        monthlyLimit: 15000
+    AccountCurrencyCreateRequest:
+      required:
+        - accountId
+        - currencyId
+        - dailyLimit
+        - employeeId
+        - monthlyLimit
+      type: object
+      properties:
+        employeeId:
+          type: string
+          format: uuid
+        currencyId:
+          type: string
+          format: uuid
+        accountId:
+          type: string
+          format: uuid
+        dailyLimit:
+          type: number
+          format: double
+        monthlyLimit:
+          type: number
+          format: double
+      additionalProperties: false
+      example:
+        employeeId: a1b2c3d4-e5f6-7890-1234-56789abcdef0
+        currencyId: f1e2d3c4-b5a6-7890-1234-56789abcdef0
+        accountId: 12345678-9abc-def0-1234-56789abcdef0
+        dailyLimit: 500
+        monthlyLimit: 15000
+    AccountCurrencyResponse:
+      required:
+        - account
+        - availableBalance
+        - balance
+        - createdAt
+        - currency
+        - dailyLimit
+        - employee
+        - id
+        - modifiedAt
+        - monthlyLimit
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        account:
+          "$ref": "#/components/schemas/AccountSimpleResponse"
+        employee:
+          "$ref": "#/components/schemas/EmployeeSimpleResponse"
+        currency:
+          "$ref": "#/components/schemas/CurrencyResponse"
+        balance:
+          type: number
+          format: double
+        availableBalance:
+          type: number
+          format: double
+        dailyLimit:
+          type: number
+          format: double
+        monthlyLimit:
+          type: number
+          format: double
+        createdAt:
+          type: string
+          format: date-time
+        modifiedAt:
+          type: string
+          format: date-time
+      additionalProperties: false
+      example:
+        id: d4e5f6a7-b8c9-40d1-a2b3-c4d5e6f78901
+        account:
+          id: 3f4b1e6e-a2f5-4e3b-8f88-2f70a6b42b19
+          accountNumber: '1234567890123456'
+        employee:
+          id: ae45452a-81fa-413b-9a3f-4e044ff13939
+          firstName: Nikola
+          lastName: Jovanović
+          dateOfBirth: '2005-05-17'
+          gender: 1
+          uniqueIdentificationNumber: '1705005710032'
+          username: nikolaj
+          email: nikola.jovanovic@example.com
+          phoneNumber: "+381632318592"
+          address: Kneza Miloša 88
+          role: 2
+          department: HR
+          createdAt: '2025-02-26T18:00:00.0000000+01:00'
+          modifiedAt: '2025-02-28T19:17:10.0000000+01:00'
+          employed: true
+          activated: true
+        currency:
+          id: 5efa312a-5ab6-4950-9579-0f605aeab4f8
+          name: Dolar
+          code: USD
+          symbol: "$"
+          countries:
+            - id: 7f3e7c12-a8b4-47f9-b5a7-123456789abc
+              name: Sjedinjene Američke Države
+              createdAt: '2024-03-05T10:30:00.0000000+01:00'
+              modifiedAt: '2025-03-05T12:45:00.0000000+01:00'
+          description: Zvanična valuta Sjedinjenih Američkih Država
+          status: true
+          createdAt: '2024-03-05T10:30:00.0000000+01:00'
+          modifiedAt: '2025-03-05T12:45:00.0000000+01:00'
+        balance: 12000.75
+        availableBalance: 8000.5
+        dailyLimit: 500
+        monthlyLimit: 15000
+        createdAt: '2024-03-05T10:30:00.0000000+01:00'
+        modifiedAt: '2025-03-05T12:45:00.0000000+01:00'
+    AccountCurrencyResponsePage:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            "$ref": "#/components/schemas/AccountCurrencyResponse"
+          nullable: true
+        pageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalElements:
+          type: integer
+          format: int32
+        totalPages:
+          type: integer
+          format: int32
+          readOnly: true
+      additionalProperties: false
+    AccountResponse:
+      required:
+        - accountCurrencies
+        - accountNumber
+        - availableBalance
+        - balance
+        - client
+        - createdAt
+        - creationDate
+        - currency
+        - dailyLimit
+        - employee
+        - expirationDate
+        - id
+        - modifiedAt
+        - monthlyLimit
+        - name
+        - status
+        - type
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        accountNumber:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        client:
+          "$ref": "#/components/schemas/ClientSimpleResponse"
+        balance:
+          type: number
+          format: double
+        availableBalance:
+          type: number
+          format: double
+        employee:
+          "$ref": "#/components/schemas/EmployeeSimpleResponse"
+        currency:
+          "$ref": "#/components/schemas/CurrencyResponse"
+        type:
+          "$ref": "#/components/schemas/AccountTypeResponse"
+        accountCurrencies:
+          type: array
+          items:
+            "$ref": "#/components/schemas/AccountCurrencyResponse"
+          nullable: true
+        dailyLimit:
+          type: number
+          format: double
+        monthlyLimit:
+          type: number
+          format: double
+        creationDate:
+          type: string
+          format: date
+        expirationDate:
+          type: string
+          format: date
+        status:
+          type: boolean
+        createdAt:
+          type: string
+          format: date-time
+        modifiedAt:
+          type: string
+          format: date-time
+      additionalProperties: false
+      example:
+        id: 3f4b1e6e-a2f5-4e3b-8f88-2f70a6b42b19
+        accountNumber: '1234567890123456'
+        name: Štedni račun
+        client:
+          id: f39d319e-db3e-4af5-bada-6bcb908b29e3
+          firstName: Aleksandar
+          lastName: Ivanović
+          dateOfBirth: '1995-07-12'
+          gender: 1
+          uniqueIdentificationNumber: '1207995710029'
+          email: aleksandar.ivanovic@gmail.com
+          phoneNumber: "+381698812321"
+          address: Kralja Petra 12
+          role: 3
+          createdAt: '2025-01-22T13:15:12.0000000+01:00'
+          modifiedAt: '2025-01-29T10:24:13.0000000+01:00'
+          activated: true
+        balance: 5000.75
+        availableBalance: 4500.5
+        employee:
+          id: ae45452a-81fa-413b-9a3f-4e044ff13939
+          firstName: Nikola
+          lastName: Jovanović
+          dateOfBirth: '2005-05-17'
+          gender: 1
+          uniqueIdentificationNumber: '1705005710032'
+          username: nikolaj
+          email: nikola.jovanovic@example.com
+          phoneNumber: "+381632318592"
+          address: Kneza Miloša 88
+          role: 2
+          department: HR
+          createdAt: '2025-02-26T18:00:00.0000000+01:00'
+          modifiedAt: '2025-02-28T19:17:10.0000000+01:00'
+          employed: true
+          activated: true
+        currency:
+          id: 5efa312a-5ab6-4950-9579-0f605aeab4f8
+          name: Dolar
+          code: USD
+          symbol: "$"
+          countries:
+            - id: 7f3e7c12-a8b4-47f9-b5a7-123456789abc
+              name: Sjedinjene Američke Države
+              createdAt: '2024-03-05T10:30:00.0000000+01:00'
+              modifiedAt: '2025-03-05T12:45:00.0000000+01:00'
+          description: Zvanična valuta Sjedinjenih Američkih Država
+          status: true
+          createdAt: '2024-03-05T10:30:00.0000000+01:00'
+          modifiedAt: '2025-03-05T12:45:00.0000000+01:00'
+        type:
+          id: c3f7a5d4-e6b8-4d2a-a678-123456789abc
+          name: Štedni račun
+          code: SSS
+          createdAt: '2024-03-05T10:30:00.0000000+01:00'
+          modifiedAt: '2025-03-05T12:45:00.0000000+01:00'
+        accountCurrencies:
+          - id: d4e5f6a7-b8c9-40d1-a2b3-c4d5e6f78901
+            account:
+              id: 3f4b1e6e-a2f5-4e3b-8f88-2f70a6b42b19
+              accountNumber: '1234567890123456'
+            employee:
+              id: ae45452a-81fa-413b-9a3f-4e044ff13939
+              firstName: Nikola
+              lastName: Jovanović
+              dateOfBirth: '2005-05-17'
+              gender: 1
+              uniqueIdentificationNumber: '1705005710032'
+              username: nikolaj
+              email: nikola.jovanovic@example.com
+              phoneNumber: "+381632318592"
+              address: Kneza Miloša 88
+              role: 2
+              department: HR
+              createdAt: '2025-02-26T18:00:00.0000000+01:00'
+              modifiedAt: '2025-02-28T19:17:10.0000000+01:00'
+              employed: true
+              activated: true
+            currency:
+              id: 5efa312a-5ab6-4950-9579-0f605aeab4f8
+              name: Dolar
+              code: USD
+              symbol: "$"
+              countries:
+                - id: 7f3e7c12-a8b4-47f9-b5a7-123456789abc
+                  name: Sjedinjene Američke Države
+                  createdAt: '2024-03-05T10:30:00.0000000+01:00'
+                  modifiedAt: '2025-03-05T12:45:00.0000000+01:00'
+              description: Zvanična valuta Sjedinjenih Američkih Država
+              status: true
+              createdAt: '2024-03-05T10:30:00.0000000+01:00'
+              modifiedAt: '2025-03-05T12:45:00.0000000+01:00'
+            balance: 12000.75
+            availableBalance: 8000.5
+            dailyLimit: 500
+            monthlyLimit: 15000
+            createdAt: '2024-03-05T10:30:00.0000000+01:00'
+            modifiedAt: '2025-03-05T12:45:00.0000000+01:00'
+        dailyLimit: 2000
+        monthlyLimit: 50000
+        creationDate: '2023-05-15'
+        expirationDate: '2033-05-15'
+        status: true
+        createdAt: '2023-05-15T10:30:00.0000000+02:00'
+        modifiedAt: '2025-03-01T15:45:00.0000000+01:00'
+    AccountResponsePage:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            "$ref": "#/components/schemas/AccountResponse"
+          nullable: true
+        pageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalElements:
+          type: integer
+          format: int32
+        totalPages:
+          type: integer
+          format: int32
+          readOnly: true
+      additionalProperties: false
     AccountSimpleResponse:
       required:
         - accountNumber
@@ -438,8 +1623,314 @@ components:
           nullable: true
       additionalProperties: false
       example:
-        id: 8cf284fa-d8f2-44f5-872a-cfa47a0f7199
-        accountNumber: 222-0001123456789-10
+        id: 3f4b1e6e-a2f5-4e3b-8f88-2f70a6b42b19
+        accountNumber: '1234567890123456'
+    AccountTypeResponse:
+      required:
+        - code
+        - createdAt
+        - id
+        - modifiedAt
+        - name
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+        code:
+          type: string
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+        modifiedAt:
+          type: string
+          format: date-time
+      additionalProperties: false
+      example:
+        id: c3f7a5d4-e6b8-4d2a-a678-123456789abc
+        name: Štedni račun
+        code: SSS
+        createdAt: '2024-03-05T10:30:00.0000000+01:00'
+        modifiedAt: '2025-03-05T12:45:00.0000000+01:00'
+    AccountTypeResponsePage:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            "$ref": "#/components/schemas/AccountTypeResponse"
+          nullable: true
+        pageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalElements:
+          type: integer
+          format: int32
+        totalPages:
+          type: integer
+          format: int32
+          readOnly: true
+      additionalProperties: false
+    AccountUpdateClientRequest:
+      required:
+        - dailyLimit
+        - monthlyLimit
+        - name
+      type: object
+      properties:
+        name:
+          type: string
+          nullable: true
+        dailyLimit:
+          type: number
+          format: double
+        monthlyLimit:
+          type: number
+          format: double
+      additionalProperties: false
+      example:
+        name: Štedni račun
+        dailyLimit: 2000
+        monthlyLimit: 50000
+    AccountUpdateEmployeeRequest:
+      required:
+        - status
+      type: object
+      properties:
+        status:
+          type: boolean
+      additionalProperties: false
+      example:
+        status: true
+    CardCreateRequest:
+      type: object
+      properties:
+        cardTypeId:
+          type: string
+          format: uuid
+        accountId:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+        limit:
+          type: number
+          format: double
+        status:
+          type: boolean
+      additionalProperties: false
+      example:
+        cardTypeId: c3d4e5f6-a7b8-1234-5678-9abcdef01234
+        accountId: d4e5f6a7-b8c9-1234-5678-abcdef012345
+        name: Credit Card
+        limit: 5000
+        status: true
+    CardLimitUpdateRequest:
+      type: object
+      properties:
+        limit:
+          type: number
+          format: double
+      additionalProperties: false
+      example:
+        limit: 5000
+    CardResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        number:
+          type: string
+          nullable: true
+        type:
+          "$ref": "#/components/schemas/CardTypeResponse"
+        name:
+          type: string
+          nullable: true
+        expiresAt:
+          type: string
+          format: date
+        account:
+          "$ref": "#/components/schemas/AccountResponse"
+        cvv:
+          type: string
+          nullable: true
+        limit:
+          type: number
+          format: double
+        status:
+          type: boolean
+        createdAt:
+          type: string
+          format: date-time
+        modifiedAt:
+          type: string
+          format: date-time
+      additionalProperties: false
+      example:
+        id: 987e6543-e21b-45d3-a123-654321abcdef
+        number: 1234-5678-9876-5437
+        type:
+          id: 123e4567-e89b-12d3-a456-426614174000
+          name: Credit Card
+          createdAt: '2024-06-12T10:30:00.0000000+02:00'
+          modifiedAt: '2025-03-05T12:45:00.0000000+01:00'
+        name: Credit Card
+        expiresAt: '2028-05-31'
+        account:
+          id: 3f4b1e6e-a2f5-4e3b-8f88-2f70a6b42b19
+          accountNumber: '1234567890123456'
+          name: Štedni račun
+          client:
+            id: f39d319e-db3e-4af5-bada-6bcb908b29e3
+            firstName: Aleksandar
+            lastName: Ivanović
+            dateOfBirth: '1995-07-12'
+            gender: 1
+            uniqueIdentificationNumber: '1207995710029'
+            email: aleksandar.ivanovic@gmail.com
+            phoneNumber: "+381698812321"
+            address: Kralja Petra 12
+            role: 3
+            createdAt: '2025-01-22T13:15:12.0000000+01:00'
+            modifiedAt: '2025-01-29T10:24:13.0000000+01:00'
+            activated: true
+          balance: 5000.75
+          availableBalance: 4500.5
+          employee:
+            id: ae45452a-81fa-413b-9a3f-4e044ff13939
+            firstName: Nikola
+            lastName: Jovanović
+            dateOfBirth: '2005-05-17'
+            gender: 1
+            uniqueIdentificationNumber: '1705005710032'
+            username: nikolaj
+            email: nikola.jovanovic@example.com
+            phoneNumber: "+381632318592"
+            address: Kneza Miloša 88
+            role: 2
+            department: HR
+            createdAt: '2025-02-26T18:00:00.0000000+01:00'
+            modifiedAt: '2025-02-28T19:17:10.0000000+01:00'
+            employed: true
+            activated: true
+          currency:
+            id: 5efa312a-5ab6-4950-9579-0f605aeab4f8
+            name: Dolar
+            code: USD
+            symbol: "$"
+            countries:
+              - id: 7f3e7c12-a8b4-47f9-b5a7-123456789abc
+                name: Sjedinjene Američke Države
+                createdAt: '2024-03-05T10:30:00.0000000+01:00'
+                modifiedAt: '2025-03-05T12:45:00.0000000+01:00'
+            description: Zvanična valuta Sjedinjenih Američkih Država
+            status: true
+            createdAt: '2024-03-05T10:30:00.0000000+01:00'
+            modifiedAt: '2025-03-05T12:45:00.0000000+01:00'
+          type:
+            id: c3f7a5d4-e6b8-4d2a-a678-123456789abc
+            name: Štedni račun
+            code: SSS
+            createdAt: '2024-03-05T10:30:00.0000000+01:00'
+            modifiedAt: '2025-03-05T12:45:00.0000000+01:00'
+          accountCurrencies:
+            - id: d4e5f6a7-b8c9-40d1-a2b3-c4d5e6f78901
+              account:
+                id: 3f4b1e6e-a2f5-4e3b-8f88-2f70a6b42b19
+                accountNumber: '1234567890123456'
+              employee:
+                id: ae45452a-81fa-413b-9a3f-4e044ff13939
+                firstName: Nikola
+                lastName: Jovanović
+                dateOfBirth: '2005-05-17'
+                gender: 1
+                uniqueIdentificationNumber: '1705005710032'
+                username: nikolaj
+                email: nikola.jovanovic@example.com
+                phoneNumber: "+381632318592"
+                address: Kneza Miloša 88
+                role: 2
+                department: HR
+                createdAt: '2025-02-26T18:00:00.0000000+01:00'
+                modifiedAt: '2025-02-28T19:17:10.0000000+01:00'
+                employed: true
+                activated: true
+              currency:
+                id: 5efa312a-5ab6-4950-9579-0f605aeab4f8
+                name: Dolar
+                code: USD
+                symbol: "$"
+                countries:
+                  - id: 7f3e7c12-a8b4-47f9-b5a7-123456789abc
+                    name: Sjedinjene Američke Države
+                    createdAt: '2024-03-05T10:30:00.0000000+01:00'
+                    modifiedAt: '2025-03-05T12:45:00.0000000+01:00'
+                description: Zvanična valuta Sjedinjenih Američkih Država
+                status: true
+                createdAt: '2024-03-05T10:30:00.0000000+01:00'
+                modifiedAt: '2025-03-05T12:45:00.0000000+01:00'
+              balance: 12000.75
+              availableBalance: 8000.5
+              dailyLimit: 500
+              monthlyLimit: 15000
+              createdAt: '2024-03-05T10:30:00.0000000+01:00'
+              modifiedAt: '2025-03-05T12:45:00.0000000+01:00'
+          dailyLimit: 2000
+          monthlyLimit: 50000
+          creationDate: '2023-05-15'
+          expirationDate: '2033-05-15'
+          status: true
+          createdAt: '2023-05-15T10:30:00.0000000+02:00'
+          modifiedAt: '2025-03-01T15:45:00.0000000+01:00'
+        cVV: '123'
+        limit: 5000
+        status: true
+        createdAt: '2024-05-02T14:12:23.0000000+02:00'
+        modifiedAt: '2025-01-03T11:45:00.0000000+01:00'
+    CardStatusUpdateRequest:
+      type: object
+      properties:
+        status:
+          type: boolean
+      additionalProperties: false
+      example:
+        status: true
+    CardTypeResponse:
+      required:
+        - createdAt
+        - id
+        - modifiedAt
+        - name
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+        modifiedAt:
+          type: string
+          format: date-time
+      additionalProperties: false
+      example:
+        id: 123e4567-e89b-12d3-a456-426614174000
+        name: Credit Card
+        createdAt: '2024-06-12T10:30:00.0000000+02:00'
+        modifiedAt: '2025-03-05T12:45:00.0000000+01:00'
     ClientCreateRequest:
       required:
         - address
@@ -557,8 +2048,8 @@ components:
         address: Kralja Petra 12
         role: 3
         accounts:
-          - id: 8cf284fa-d8f2-44f5-872a-cfa47a0f7199
-            accountNumber: 222-0001123456789-10
+          - id: 3f4b1e6e-a2f5-4e3b-8f88-2f70a6b42b19
+            accountNumber: '1234567890123456'
         createdAt: '2025-01-22T13:15:12.0000000+01:00'
         modifiedAt: '2025-01-29T10:24:13.0000000+01:00'
         activated: true
@@ -584,6 +2075,74 @@ components:
           format: int32
           readOnly: true
       additionalProperties: false
+    ClientSimpleResponse:
+      required:
+        - activated
+        - address
+        - createdAt
+        - dateOfBirth
+        - email
+        - firstName
+        - gender
+        - id
+        - lastName
+        - modifiedAt
+        - phoneNumber
+        - role
+        - uniqueIdentificationNumber
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        firstName:
+          type: string
+          nullable: true
+        lastName:
+          type: string
+          nullable: true
+        dateOfBirth:
+          type: string
+          format: date
+        gender:
+          "$ref": "#/components/schemas/Gender"
+        uniqueIdentificationNumber:
+          type: string
+          nullable: true
+        email:
+          type: string
+          nullable: true
+        phoneNumber:
+          type: string
+          nullable: true
+        address:
+          type: string
+          nullable: true
+        role:
+          "$ref": "#/components/schemas/Role"
+        createdAt:
+          type: string
+          format: date-time
+        modifiedAt:
+          type: string
+          format: date-time
+        activated:
+          type: boolean
+      additionalProperties: false
+      example:
+        id: f39d319e-db3e-4af5-bada-6bcb908b29e3
+        firstName: Aleksandar
+        lastName: Ivanović
+        dateOfBirth: '1995-07-12'
+        gender: 1
+        uniqueIdentificationNumber: '1207995710029'
+        email: aleksandar.ivanovic@gmail.com
+        phoneNumber: "+381698812321"
+        address: Kralja Petra 12
+        role: 3
+        createdAt: '2025-01-22T13:15:12.0000000+01:00'
+        modifiedAt: '2025-01-29T10:24:13.0000000+01:00'
+        activated: true
     ClientUpdateRequest:
       required:
         - activated
@@ -614,6 +2173,352 @@ components:
         phoneNumber: "+381698812321"
         address: Kralja Petra 12
         activated: true
+    CompanyCreateRequest:
+      required:
+        - activityCode
+        - address
+        - majorityOwnerId
+        - name
+        - registrationNumber
+        - taxIdentificationNumber
+      type: object
+      properties:
+        name:
+          type: string
+          nullable: true
+        registrationNumber:
+          type: string
+          nullable: true
+        taxIdentificationNumber:
+          type: string
+          nullable: true
+        activityCode:
+          type: string
+          nullable: true
+        address:
+          type: string
+          nullable: true
+        majorityOwnerId:
+          type: string
+          format: uuid
+      additionalProperties: false
+      example:
+        name: MAX BET
+        registrationNumber: '12345678'
+        taxIdentificationNumber: '987654321'
+        activityCode: '10.01'
+        address: Cara Dušana 32
+        majorityOwnerId: 73b8f8ee-ff51-4247-b65b-52b8b9a494e5
+    CompanyResponse:
+      required:
+        - activityCode
+        - address
+        - id
+        - name
+        - registrationNumber
+        - taxIdentificationNumber
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+        registrationNumber:
+          type: string
+          nullable: true
+        taxIdentificationNumber:
+          type: string
+          nullable: true
+        activityCode:
+          type: string
+          nullable: true
+        address:
+          type: string
+          nullable: true
+        majorityOwner:
+          "$ref": "#/components/schemas/UserSimpleResponse"
+      additionalProperties: false
+      example:
+        id: 8a7b9f2d-4c8a-4b1d-b1cd-987654321abc
+        name: MAX BET
+        registrationNumber: '12345678'
+        taxIdentificationNumber: '987654321'
+        activityCode: '10.01'
+        address: Cara Dušana 32
+        majorityOwner:
+          id: 73b8f8ee-ff51-4247-b65b-52b8b9a494e5
+          firstName: Marko
+          lastName: Petrović
+          dateOfBirth: '1995-07-21'
+          gender: 1
+          uniqueIdentificationNumber: '2107953710020'
+          username: markop
+          email: marko.petrovic@example.com
+          phoneNumber: "+381641234567"
+          address: Kraljice Natalije 45
+          role: 1
+          department: IT department
+          createdAt: '2024-10-15T09:30:00.0000000+02:00'
+          modifiedAt: '2025-02-28T12:45:00.0000000+01:00'
+          activated: true
+    CompanyResponsePage:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CompanyResponse"
+          nullable: true
+        pageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalElements:
+          type: integer
+          format: int32
+        totalPages:
+          type: integer
+          format: int32
+          readOnly: true
+      additionalProperties: false
+    CompanyUpdateRequest:
+      required:
+        - activityCode
+        - address
+        - majorityOwnerId
+        - name
+      type: object
+      properties:
+        name:
+          type: string
+          nullable: true
+        activityCode:
+          type: string
+          nullable: true
+        address:
+          type: string
+          nullable: true
+        majorityOwnerId:
+          type: string
+          format: uuid
+      additionalProperties: false
+      example:
+        name: MAX BET
+        activityCode: '10.01'
+        address: Cara Dušana 32
+        majorityOwnerId: 73b8f8ee-ff51-4247-b65b-52b8b9a494e5
+    CountryResponse:
+      required:
+        - createdAt
+        - id
+        - modifiedAt
+        - name
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+        currency:
+          "$ref": "#/components/schemas/CurrencySimpleResponse"
+        createdAt:
+          type: string
+          format: date-time
+        modifiedAt:
+          type: string
+          format: date-time
+      additionalProperties: false
+      example:
+        id: 7f3e7c12-a8b4-47f9-b5a7-123456789abc
+        name: Sjedinjene Američke Države
+        currency:
+          id: 5efa312a-5ab6-4950-9579-0f605aeab4f8
+          name: Dolar
+          code: USD
+          symbol: "$"
+          description: Zvanična valuta Sjedinjenih Američkih Država
+          status: true
+          createdAt: '2024-03-05T10:30:00.0000000+01:00'
+          modifiedAt: '2025-03-05T12:45:00.0000000+01:00'
+        createdAt: '2024-03-05T10:30:00.0000000+01:00'
+        modifiedAt: '2025-03-05T12:45:00.0000000+01:00'
+    CountryResponsePage:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CountryResponse"
+          nullable: true
+        pageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalElements:
+          type: integer
+          format: int32
+        totalPages:
+          type: integer
+          format: int32
+          readOnly: true
+      additionalProperties: false
+    CountrySimpleResponse:
+      required:
+        - createdAt
+        - id
+        - modifiedAt
+        - name
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+        modifiedAt:
+          type: string
+          format: date-time
+      additionalProperties: false
+      example:
+        id: 7f3e7c12-a8b4-47f9-b5a7-123456789abc
+        name: Sjedinjene Američke Države
+        createdAt: '2024-03-05T10:30:00.0000000+01:00'
+        modifiedAt: '2025-03-05T12:45:00.0000000+01:00'
+    CurrencyResponse:
+      required:
+        - code
+        - countries
+        - createdAt
+        - description
+        - id
+        - modifiedAt
+        - name
+        - status
+        - symbol
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+        code:
+          type: string
+          nullable: true
+        symbol:
+          type: string
+          nullable: true
+        countries:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CountrySimpleResponse"
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        status:
+          type: boolean
+        createdAt:
+          type: string
+          format: date-time
+        modifiedAt:
+          type: string
+          format: date-time
+      additionalProperties: false
+      example:
+        id: 5efa312a-5ab6-4950-9579-0f605aeab4f8
+        name: Dolar
+        code: USD
+        symbol: "$"
+        countries:
+          - id: 7f3e7c12-a8b4-47f9-b5a7-123456789abc
+            name: Sjedinjene Američke Države
+            createdAt: '2024-03-05T10:30:00.0000000+01:00'
+            modifiedAt: '2025-03-05T12:45:00.0000000+01:00'
+        description: Zvanična valuta Sjedinjenih Američkih Država
+        status: true
+        createdAt: '2024-03-05T10:30:00.0000000+01:00'
+        modifiedAt: '2025-03-05T12:45:00.0000000+01:00'
+    CurrencyResponsePage:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CurrencyResponse"
+          nullable: true
+        pageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalElements:
+          type: integer
+          format: int32
+        totalPages:
+          type: integer
+          format: int32
+          readOnly: true
+      additionalProperties: false
+    CurrencySimpleResponse:
+      required:
+        - code
+        - createdAt
+        - description
+        - id
+        - modifiedAt
+        - name
+        - status
+        - symbol
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+        code:
+          type: string
+          nullable: true
+        symbol:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        status:
+          type: boolean
+        createdAt:
+          type: string
+          format: date-time
+        modifiedAt:
+          type: string
+          format: date-time
+      additionalProperties: false
+      example:
+        id: 5efa312a-5ab6-4950-9579-0f605aeab4f8
+        name: Dolar
+        code: USD
+        symbol: "$"
+        description: Zvanična valuta Sjedinjenih Američkih Država
+        status: true
+        createdAt: '2024-03-05T10:30:00.0000000+01:00'
+        modifiedAt: '2025-03-05T12:45:00.0000000+01:00'
     EmployeeCreateRequest:
       required:
         - address
@@ -781,6 +2686,88 @@ components:
           format: int32
           readOnly: true
       additionalProperties: false
+    EmployeeSimpleResponse:
+      required:
+        - activated
+        - address
+        - createdAt
+        - dateOfBirth
+        - department
+        - email
+        - employed
+        - firstName
+        - gender
+        - id
+        - lastName
+        - modifiedAt
+        - phoneNumber
+        - role
+        - uniqueIdentificationNumber
+        - username
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        firstName:
+          type: string
+          nullable: true
+        lastName:
+          type: string
+          nullable: true
+        dateOfBirth:
+          type: string
+          format: date
+        gender:
+          "$ref": "#/components/schemas/Gender"
+        uniqueIdentificationNumber:
+          type: string
+          nullable: true
+        username:
+          type: string
+          nullable: true
+        email:
+          type: string
+          nullable: true
+        phoneNumber:
+          type: string
+          nullable: true
+        address:
+          type: string
+          nullable: true
+        role:
+          "$ref": "#/components/schemas/Role"
+        department:
+          type: string
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+        modifiedAt:
+          type: string
+          format: date-time
+        employed:
+          type: boolean
+        activated:
+          type: boolean
+      additionalProperties: false
+      example:
+        id: ae45452a-81fa-413b-9a3f-4e044ff13939
+        firstName: Nikola
+        lastName: Jovanović
+        dateOfBirth: '2005-05-17'
+        gender: 1
+        uniqueIdentificationNumber: '1705005710032'
+        username: nikolaj
+        email: nikola.jovanovic@example.com
+        phoneNumber: "+381632318592"
+        address: Kneza Miloša 88
+        role: 2
+        department: HR
+        createdAt: '2025-02-26T18:00:00.0000000+01:00'
+        modifiedAt: '2025-02-28T19:17:10.0000000+01:00'
+        employed: true
+        activated: true
     EmployeeUpdateRequest:
       required:
         - activated
@@ -904,8 +2891,8 @@ components:
           role: 1
           department: IT department
           accounts:
-            - id: 8cf284fa-d8f2-44f5-872a-cfa47a0f7199
-              accountNumber: 222-0001123456789-10
+            - id: 3f4b1e6e-a2f5-4e3b-8f88-2f70a6b42b19
+              accountNumber: '1234567890123456'
           createdAt: '2024-10-15T09:30:00.0000000+02:00'
           modifiedAt: '2025-02-28T12:45:00.0000000+01:00'
           activated: true
@@ -1018,8 +3005,8 @@ components:
         role: 1
         department: IT department
         accounts:
-          - id: 8cf284fa-d8f2-44f5-872a-cfa47a0f7199
-            accountNumber: 222-0001123456789-10
+          - id: 3f4b1e6e-a2f5-4e3b-8f88-2f70a6b42b19
+            accountNumber: '1234567890123456'
         createdAt: '2024-10-15T09:30:00.0000000+02:00'
         modifiedAt: '2025-02-28T12:45:00.0000000+01:00'
         activated: true
@@ -1045,6 +3032,84 @@ components:
           format: int32
           readOnly: true
       additionalProperties: false
+    UserSimpleResponse:
+      required:
+        - activated
+        - address
+        - createdAt
+        - dateOfBirth
+        - department
+        - email
+        - firstName
+        - gender
+        - id
+        - lastName
+        - modifiedAt
+        - phoneNumber
+        - role
+        - uniqueIdentificationNumber
+        - username
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        firstName:
+          type: string
+          nullable: true
+        lastName:
+          type: string
+          nullable: true
+        dateOfBirth:
+          type: string
+          format: date
+        gender:
+          "$ref": "#/components/schemas/Gender"
+        uniqueIdentificationNumber:
+          type: string
+          nullable: true
+        username:
+          type: string
+          nullable: true
+        email:
+          type: string
+          nullable: true
+        phoneNumber:
+          type: string
+          nullable: true
+        address:
+          type: string
+          nullable: true
+        role:
+          "$ref": "#/components/schemas/Role"
+        department:
+          type: string
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+        modifiedAt:
+          type: string
+          format: date-time
+        activated:
+          type: boolean
+      additionalProperties: false
+      example:
+        id: 73b8f8ee-ff51-4247-b65b-52b8b9a494e5
+        firstName: Marko
+        lastName: Petrović
+        dateOfBirth: '1995-07-21'
+        gender: 1
+        uniqueIdentificationNumber: '2107953710020'
+        username: markop
+        email: marko.petrovic@example.com
+        phoneNumber: "+381641234567"
+        address: Kraljice Natalije 45
+        role: 1
+        department: IT department
+        createdAt: '2024-10-15T09:30:00.0000000+02:00'
+        modifiedAt: '2025-02-28T12:45:00.0000000+01:00'
+        activated: true
   securitySchemes:
     Bearer:
       type: apiKey
