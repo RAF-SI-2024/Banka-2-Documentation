@@ -1,0 +1,4 @@
+export const Env = {
+  USER_SERVICE_BASE_URL: import.meta.env.VITE_USER_SERVICE_BASE_URL,
+  EXCHANGE_SERVICE_BASE_URL: import.meta.env.VITE_EXCHANGE_SERVICE_BASE_URL
+}

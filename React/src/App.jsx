@@ -1,5 +1,6 @@
 import {ApiReferenceReact} from '@scalar/api-reference-react'
 import '@scalar/api-reference-react/style.css'
+import {Env} from "./EnvironmentVariables.js";
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
           url: './user.openapi.yaml',
           servers: [
             {
-              url: "https://banka-2.si.raf.edu.rs/api/user-service/",
+              url: Env.USER_SERVICE_BASE_URL,
               description: "Rubijev Server"
             }
           ],
@@ -30,7 +31,7 @@ function App() {
             url: './exchange.openapi.yaml',
             servers: [
               {
-                url: "https://banka-2.si.raf.edu.rs/api/exchange-service/",
+                url: Env.EXCHANGE_SERVICE_BASE_URL,
                 description: "Rubijev Server"
               }
             ],
