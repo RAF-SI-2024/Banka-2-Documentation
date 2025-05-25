@@ -7,69 +7,120 @@
                  start-page="Bank.md">
 
     <toc-element topic="Bank.md"/>
-    <toc-element topic="User-Service.md">
-        <toc-element topic="Account-Types.md">
-            <toc-element topic="Get-Account-Types.md"/>
-            <toc-element topic="Get-Account-Type-by-Id.md"/>
+    <toc-element topic="API_Reference.md">
+        <toc-element toc-title="Users">
+            <toc-element topic="api_v1_users_id_permission_PUT.md"/>
+            <toc-element topic="api_v1_users_password_reset_POST.md"/>
+            <toc-element topic="api_v1_users_password_reset_request_POST.md"/>
+            <toc-element topic="api_v1_users_activate_POST.md"/>
+            <toc-element topic="api_v1_users_login_POST.md"/>
+            <toc-element topic="api_v1_users_id_GET.md"/>
+            <toc-element topic="api_v1_users_GET.md"/>
         </toc-element>
-        <toc-element topic="Accounts.md">
-            <toc-element topic="Get-Accounts.md"/>
-            <toc-element topic="Get-Account-by-Id.md"/>
-            <toc-element topic="Create-Account.md"/>
-            <toc-element topic="Update-Client-Account.md"/>
-            <toc-element topic="Update-Employee-Account.md"/>
+        <toc-element toc-title="Transaction Templates">
+            <toc-element topic="api_v1_transactions_templates_id_PUT.md"/>
+            <toc-element topic="api_v1_transactions_templates_id_GET.md"/>
+            <toc-element topic="api_v1_transactions_templates_POST.md"/>
+            <toc-element topic="api_v1_transactions_templates_GET.md"/>
         </toc-element>
-        <toc-element topic="AccountCurrencies.md">
-            <toc-element topic="Get-Account-Currencies.md"/>
-            <toc-element topic="Get-Account-Currency-by-Id.md"/>
-            <toc-element topic="Create-Account-Currency.md"/>
-            <toc-element topic="Update-Client-Account-Currency.md"/>
+        <toc-element toc-title="Transaction Codes">
+            <toc-element topic="api_v1_transactions_codes_id_GET.md"/>
+            <toc-element topic="api_v1_transactions_codes_GET.md"/>
         </toc-element>
-        <toc-element topic="Card-Types.md">
-            <toc-element topic="Get-Card-Types.md"/>
-            <toc-element topic="Get-Card-Type-by-Id.md"/>
+        <toc-element topic="api_v1_transactions_id_PUT.md"/>
+        <toc-element topic="api_v1_transactions_id_GET.md"/>
+        <toc-element topic="api_v1_accounts_accountId_transactions_GET.md"/>
+        <toc-element topic="api_v1_transactions_POST.md"/>
+        <toc-element topic="api_v1_transactions_GET.md"/>
+        <toc-element topic="api_v1_loans_types_id_PUT.md"/>
+        <toc-element topic="api_v1_loans_types_id_GET.md"/>
+        <toc-element topic="api_v1_loans_types_POST.md"/>
+        <toc-element topic="api_v1_loans_types_GET.md"/>
+        <toc-element topic="api_v1_clients_clientId_loans_GET.md"/>
+        <toc-element topic="api_v1_loans_id_PUT.md"/>
+        <toc-element topic="api_v1_loans_id_GET.md"/>
+        <toc-element topic="api_v1_loans_POST.md"/>
+        <toc-element topic="api_v1_loans_GET.md"/>
+        <toc-element topic="api_v1_installments_POST.md"/>
+        <toc-element topic="api_v1_installments_id_PUT.md"/>
+        <toc-element topic="api_v1_installments_id_GET.md"/>
+        <toc-element topic="api_v1_loans_loanId_installments_GET.md"/>
+        <toc-element topic="api_v1_exchanges_currencies_GET.md"/>
+        <toc-element topic="api_v1_exchanges_id_PUT.md"/>
+        <toc-element topic="api_v1_exchanges_id_GET.md"/>
+        <toc-element topic="api_v1_exchanges_POST.md"/>
+        <toc-element topic="api_v1_exchanges_GET.md"/>
+        <toc-element topic="Users.md">
         </toc-element>
-        <toc-element topic="Cards.md">
-            <toc-element topic="Get-Cards.md"/>
-            <toc-element topic="Get-Card-by-Id.md"/>
-            <toc-element topic="Create-Card.md"/>
-            <toc-element topic="Update-Client-Card.md"/>
-            <toc-element topic="Update-Employee-Card.md"/>
-        </toc-element>
-        <toc-element topic="Clients.md">
-            <toc-element topic="Get-Clients.md"/>
-            <toc-element topic="Get-Client-by-Id.md"/>
-            <toc-element topic="Register-Client.md"/>
-            <toc-element topic="Update-Client.md"/>
-        </toc-element>
-        <toc-element topic="Company.md">
-            <toc-element topic="Get-Companies.md"/>
-            <toc-element topic="Get-Company-by-Id.md"/>
-            <toc-element topic="Create-Company.md"/>
-            <toc-element topic="Update-Company.md"/>
-        </toc-element>
-        <toc-element topic="Country.md">
-            <toc-element topic="Get-Countries.md"/>
-            <toc-element topic="Get-Country-by-Id.md"/>
-        </toc-element>
-        <toc-element topic="Currencies.md">
-            <toc-element topic="Get-Currencies.md"/>
-            <toc-element topic="Get-Currency-by-Id.md"/>
+        <toc-element topic="Transaction-Templates.md"/>
+        <toc-element topic="Transaction-Codes.md"/>
+        <toc-element topic="Transactions.md"/>
+        <toc-element topic="Loan-Types.md"/>
+        <toc-element topic="Loans.md"/>
+        <toc-element topic="Installments.md"/>
+        <toc-element topic="Exchanges.md">
         </toc-element>
         <toc-element topic="Employees.md">
-            <toc-element topic="Get-Employees.md"/>
-            <toc-element topic="Get-Employee-by-Id.md"/>
-            <toc-element topic="Register-Employee.md"/>
-            <toc-element topic="Update-Employee.md"/>
+            <toc-element topic="api_v1_employees_GET.md"/>
+            <toc-element topic="api_v1_employees_POST.md"/>
+            <toc-element topic="api_v1_employees_id_GET.md"/>
+            <toc-element topic="api_v1_employees_id_PUT.md"/>
         </toc-element>
-        <toc-element topic="Users.md">
-            <toc-element topic="Get-Users.md"/>
-            <toc-element topic="Get-User-by-Id.md"/>
-            <toc-element topic="User-Login.md"/>
-            <toc-element topic="Activate-User.md"/>
-            <toc-element topic="Request-User-Password-Reset.md"/>
-            <toc-element topic="Reset-User-Password.md"/>
+        <toc-element topic="Currencies.md">
+            <toc-element topic="api_v1_currencies_GET.md"/>
+            <toc-element topic="api_v1_currencies_simple_GET.md"/>
+            <toc-element topic="api_v1_currencies_id_GET.md"/>
+            <toc-element topic="api_v1_currencies_simple_id_GET.md"/>
         </toc-element>
+        <toc-element topic="Country.md">
+            <toc-element topic="api_v1_countries_GET.md"/>
+            <toc-element topic="api_v1_countries_id_GET.md"/>
+        </toc-element>
+        <toc-element topic="Company.md">
+            <toc-element topic="api_v1_companies_GET.md"/>
+            <toc-element topic="api_v1_companies_POST.md"/>
+            <toc-element topic="api_v1_companies_id_GET.md"/>
+            <toc-element topic="api_v1_companies_id_PUT.md"/>
+        </toc-element>
+        <toc-element topic="Clients.md">
+            <toc-element topic="api_v1_clients_GET.md"/>
+            <toc-element topic="api_v1_clients_POST.md"/>
+            <toc-element topic="api_v1_clients_id_GET.md"/>
+            <toc-element topic="api_v1_clients_id_PUT.md"/>
+        </toc-element>
+        <toc-element topic="Cards.md">
+            <toc-element topic="api_v1_cards_GET.md"/>
+            <toc-element topic="api_v1_cards_POST.md"/>
+            <toc-element topic="api_v1_accounts_accountId_cards_GET.md"/>
+            <toc-element topic="api_v1_clients_clientId_cards_GET.md"/>
+            <toc-element topic="api_v1_cards_id_GET.md"/>
+            <toc-element topic="api_v1_cards_id_status_PUT.md"/>
+            <toc-element topic="api_v1_cards_id_limit_PUT.md"/>
+        </toc-element>
+        <toc-element topic="Card-Types.md">
+            <toc-element topic="api_v1_cards_types_id_GET.md"/>
+            <toc-element topic="api_v1_cards_types_GET.md"/>
+        </toc-element>
+        <toc-element topic="AccountCurrencies.md">
+            <toc-element topic="api_v1_accounts_currencies_GET.md"/>
+            <toc-element topic="api_v1_accounts_currencies_POST.md"/>
+            <toc-element topic="api_v1_accounts_currencies_id_GET.md"/>
+            <toc-element topic="api_v1_accounts_currencies_id_client_PUT.md"/>
+        </toc-element>
+        <toc-element topic="Account-Types.md">
+            <toc-element topic="api_v1_accounts_types_GET.md"/>
+            <toc-element topic="api_v1_accounts_types_id_GET.md"/>
+        </toc-element>
+        <toc-element topic="Accounts.md">
+            <toc-element topic="api_v1_accounts_GET.md"/>
+            <toc-element topic="api_v1_accounts_POST.md"/>
+            <toc-element topic="api_v1_clients_clientId_accounts_GET.md"/>
+            <toc-element topic="api_v1_accounts_id_GET.md"/>
+            <toc-element topic="api_v1_accounts_client_id_PUT.md"/>
+            <toc-element topic="api_v1_accounts_employee_id_PUT.md"/>
+        </toc-element>
+    </toc-element>
+    <toc-element topic="User-Service.md">
     </toc-element>
     <toc-element topic="Changelog.md"/>
 </instance-profile>

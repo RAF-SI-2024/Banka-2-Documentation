@@ -74,4 +74,360 @@
         <description>Created after removal of "API Reference" from Bank</description>
         <accepts>API_Reference.html</accepts>
     </rule>
+    <rule id="66b1664b">
+        <description>Created after removal of "UserSimpleResponse" from Bank</description>
+        <accepts>UserSimpleResponse.html</accepts>
+    </rule>
+    <rule id="38e1a3dd">
+        <description>Created after removal of "UserResponse" from Bank</description>
+        <accepts>UserResponse.html</accepts>
+    </rule>
+    <rule id="db29036">
+        <description>Created after removal of "StockSimpleResponsePage" from Bank</description>
+        <accepts>StockSimpleResponsePage.html</accepts>
+    </rule>
+    <rule id="df19f04">
+        <description>Created after removal of "StockSimpleResponse" from Bank</description>
+        <accepts>StockSimpleResponse.html</accepts>
+    </rule>
+    <rule id="76f0d3b4">
+        <description>Created after removal of "StockResponse" from Bank</description>
+        <accepts>StockResponse.html</accepts>
+    </rule>
+    <rule id="7259f2dc">
+        <description>Created after removal of "StockExchangeResponsePage" from Bank</description>
+        <accepts>StockExchangeResponsePage.html</accepts>
+    </rule>
+    <rule id="4ae217ec">
+        <description>Created after removal of "StockExchangeResponse" from Bank</description>
+        <accepts>StockExchangeResponse.html</accepts>
+    </rule>
+    <rule id="34500de8">
+        <description>Created after removal of "StockDailyResponse" from Bank</description>
+        <accepts>StockDailyResponse.html</accepts>
+    </rule>
+    <rule id="77794da5">
+        <description>Created after removal of "Role" from Bank</description>
+        <accepts>Role.html</accepts>
+    </rule>
+    <rule id="2ac525ad">
+        <description>Created after removal of "QuoteSimpleResponse" from Bank</description>
+        <accepts>QuoteSimpleResponse.html</accepts>
+    </rule>
+    <rule id="548e96e8">
+        <description>Created after removal of "QuoteIntervalType" from Bank</description>
+        <accepts>QuoteIntervalType.html</accepts>
+    </rule>
+    <rule id="6622c13b">
+        <description>Created after removal of "QuoteDailySimpleResponse" from Bank</description>
+        <accepts>QuoteDailySimpleResponse.html</accepts>
+    </rule>
+    <rule id="3961624b">
+        <description>Created after removal of "OrderUpdateRequest" from Bank</description>
+        <accepts>OrderUpdateRequest.html</accepts>
+    </rule>
+    <rule id="7d66d097">
+        <description>Created after removal of "OrderType" from Bank</description>
+        <accepts>OrderType.html</accepts>
+    </rule>
+    <rule id="4eaa5f4a">
+        <description>Created after removal of "OrderStatus" from Bank</description>
+        <accepts>OrderStatus.html</accepts>
+    </rule>
+    <rule id="329cf55e">
+        <description>Created after removal of "OrderResponse" from Bank</description>
+        <accepts>OrderResponse.html</accepts>
+    </rule>
+    <rule id="5f338781">
+        <description>Created after removal of "OrderCreateRequest" from Bank</description>
+        <accepts>OrderCreateRequest.html</accepts>
+    </rule>
+    <rule id="1fa5a5eb">
+        <description>Created after removal of "OptionType" from Bank</description>
+        <accepts>OptionType.html</accepts>
+    </rule>
+    <rule id="6311fcb8">
+        <description>Created after removal of "OptionSimpleResponsePage" from Bank</description>
+        <accepts>OptionSimpleResponsePage.html</accepts>
+    </rule>
+    <rule id="108a15d1">
+        <description>Created after removal of "OptionSimpleResponse" from Bank</description>
+        <accepts>OptionSimpleResponse.html</accepts>
+    </rule>
+    <rule id="21a00ab2">
+        <description>Created after removal of "OptionResponse" from Bank</description>
+        <accepts>OptionResponse.html</accepts>
+    </rule>
+    <rule id="4c7aeb17">
+        <description>Created after removal of "Liquidity" from Bank</description>
+        <accepts>Liquidity.html</accepts>
+    </rule>
+    <rule id="1411a836">
+        <description>Created after removal of "Gender" from Bank</description>
+        <accepts>Gender.html</accepts>
+    </rule>
+    <rule id="23b2aadf">
+        <description>Created after removal of "FutureContractSimpleResponsePage" from Bank</description>
+        <accepts>FutureContractSimpleResponsePage.html</accepts>
+    </rule>
+    <rule id="4ae866a4">
+        <description>Created after removal of "FutureContractSimpleResponse" from Bank</description>
+        <accepts>FutureContractSimpleResponse.html</accepts>
+    </rule>
+    <rule id="7c3109e5">
+        <description>Created after removal of "FutureContractResponse" from Bank</description>
+        <accepts>FutureContractResponse.html</accepts>
+    </rule>
+    <rule id="4c7f2809">
+        <description>Created after removal of "ForexPairSimpleResponsePage" from Bank</description>
+        <accepts>ForexPairSimpleResponsePage.html</accepts>
+    </rule>
+    <rule id="75b22523">
+        <description>Created after removal of "ForexPairSimpleResponse" from Bank</description>
+        <accepts>ForexPairSimpleResponse.html</accepts>
+    </rule>
+    <rule id="69a9f918">
+        <description>Created after removal of "ForexPairResponse" from Bank</description>
+        <accepts>ForexPairResponse.html</accepts>
+    </rule>
+    <rule id="5b634b3c">
+        <description>Created after removal of "ForexPairDailyResponse" from Bank</description>
+        <accepts>ForexPairDailyResponse.html</accepts>
+    </rule>
+    <rule id="2e33c90a">
+        <description>Created after removal of "ExchangeCreateRequest" from Bank</description>
+        <accepts>ExchangeCreateRequest.html</accepts>
+    </rule>
+    <rule id="190628ad">
+        <description>Created after removal of "EmployeeSimpleResponse" from Bank</description>
+        <accepts>EmployeeSimpleResponse.html</accepts>
+    </rule>
+    <rule id="189fe95e">
+        <description>Created after removal of "Direction" from Bank</description>
+        <accepts>Direction.html</accepts>
+    </rule>
+    <rule id="2e2f8b10">
+        <description>Created after removal of "CurrencySimpleResponse" from Bank</description>
+        <accepts>CurrencySimpleResponse.html</accepts>
+    </rule>
+    <rule id="3065b820">
+        <description>Created after removal of "CurrencyResponse" from Bank</description>
+        <accepts>CurrencyResponse.html</accepts>
+    </rule>
+    <rule id="585b0a92">
+        <description>Created after removal of "CountrySimpleResponse" from Bank</description>
+        <accepts>CountrySimpleResponse.html</accepts>
+    </rule>
+    <rule id="252acbcb">
+        <description>Created after removal of "ContractUnit" from Bank</description>
+        <accepts>ContractUnit.html</accepts>
+    </rule>
+    <rule id="7f2ef128">
+        <description>Created after removal of "CompanyResponse" from Bank</description>
+        <accepts>CompanyResponse.html</accepts>
+    </rule>
+    <rule id="b569276">
+        <description>Created after removal of "ClientSimpleResponse" from Bank</description>
+        <accepts>ClientSimpleResponse.html</accepts>
+    </rule>
+    <rule id="54e8e905">
+        <description>Created after removal of "AccountTypeResponse" from Bank</description>
+        <accepts>AccountTypeResponse.html</accepts>
+    </rule>
+    <rule id="4cdb9c9">
+        <description>Created after removal of "AccountSimpleResponse" from Bank</description>
+        <accepts>AccountSimpleResponse.html</accepts>
+    </rule>
+    <rule id="5d6c4a5b">
+        <description>Created after removal of "AccountResponse" from Bank</description>
+        <accepts>AccountResponse.html</accepts>
+    </rule>
+    <rule id="2d0d956a">
+        <description>Created after removal of "AccountCurrencyResponse" from Bank</description>
+        <accepts>AccountCurrencyResponse.html</accepts>
+    </rule>
+    <rule id="6066744d">
+        <description>Created after removal of "Schemas" from Bank</description>
+        <accepts>Schemas.html</accepts>
+    </rule>
+    <rule id="1cd182fd">
+        <description>Created after removal of "Get Accounts" from Bank</description>
+        <accepts>Get-Accounts.html</accepts>
+    </rule>
+    <rule id="35b6b533">
+        <description>Created after removal of "Get Account by Id" from Bank</description>
+        <accepts>Get-Account-by-Id.html</accepts>
+    </rule>
+    <rule id="230b18eb">
+        <description>Created after removal of "Create Account" from Bank</description>
+        <accepts>Create-Account.html</accepts>
+    </rule>
+    <rule id="4c1914ef">
+        <description>Created after removal of "Update Client Account" from Bank</description>
+        <accepts>Update-Client-Account.html</accepts>
+    </rule>
+    <rule id="6d3f61fb">
+        <description>Created after removal of "Update Employee Account" from Bank</description>
+        <accepts>Update-Employee-Account.html</accepts>
+    </rule>
+    <rule id="56f1879a">
+        <description>Created after removal of "Get Account Types" from Bank</description>
+        <accepts>Get-Account-Types.html</accepts>
+    </rule>
+    <rule id="12eb27e3">
+        <description>Created after removal of "Get Account Type by Id" from Bank</description>
+        <accepts>Get-Account-Type-by-Id.html</accepts>
+    </rule>
+    <rule id="42631623">
+        <description>Created after removal of "Get Account Currencies" from Bank</description>
+        <accepts>Get-Account-Currencies.html</accepts>
+    </rule>
+    <rule id="b59efba">
+        <description>Created after removal of "Get Account Currency by Id" from Bank</description>
+        <accepts>Get-Account-Currency-by-Id.html</accepts>
+    </rule>
+    <rule id="a055acd">
+        <description>Created after removal of "Create Account Currency" from Bank</description>
+        <accepts>Create-Account-Currency.html</accepts>
+    </rule>
+    <rule id="3f71389f">
+        <description>Created after removal of "Update Client Account Currency" from Bank</description>
+        <accepts>Update-Client-Account-Currency.html</accepts>
+    </rule>
+    <rule id="2cdd1242">
+        <description>Created after removal of "Get Card Types" from Bank</description>
+        <accepts>Get-Card-Types.html</accepts>
+    </rule>
+    <rule id="4c340244">
+        <description>Created after removal of "Get Card Type by Id" from Bank</description>
+        <accepts>Get-Card-Type-by-Id.html</accepts>
+    </rule>
+    <rule id="6581114e">
+        <description>Created after removal of "Get Cards" from Bank</description>
+        <accepts>Get-Cards.html</accepts>
+    </rule>
+    <rule id="5f151bc7">
+        <description>Created after removal of "Get Card by Id" from Bank</description>
+        <accepts>Get-Card-by-Id.html</accepts>
+    </rule>
+    <rule id="77d8766c">
+        <description>Created after removal of "Create Card" from Bank</description>
+        <accepts>Create-Card.html</accepts>
+    </rule>
+    <rule id="453a6a05">
+        <description>Created after removal of "Update Client Card" from Bank</description>
+        <accepts>Update-Client-Card.html</accepts>
+    </rule>
+    <rule id="9ebac43">
+        <description>Created after removal of "Update Employee Card" from Bank</description>
+        <accepts>Update-Employee-Card.html</accepts>
+    </rule>
+    <rule id="24eceef6">
+        <description>Created after removal of "Get Clients" from Bank</description>
+        <accepts>Get-Clients.html</accepts>
+    </rule>
+    <rule id="dc5c0e">
+        <description>Created after removal of "Get Client by Id" from Bank</description>
+        <accepts>Get-Client-by-Id.html</accepts>
+    </rule>
+    <rule id="536ecc6d">
+        <description>Created after removal of "Register Client" from Bank</description>
+        <accepts>Register-Client.html</accepts>
+    </rule>
+    <rule id="7196050">
+        <description>Created after removal of "Update Client" from Bank</description>
+        <accepts>Update-Client.html</accepts>
+    </rule>
+    <rule id="532888f1">
+        <description>Created after removal of "Get Companies" from Bank</description>
+        <accepts>Get-Companies.html</accepts>
+    </rule>
+    <rule id="63990191">
+        <description>Created after removal of "Get Company by Id" from Bank</description>
+        <accepts>Get-Company-by-Id.html</accepts>
+    </rule>
+    <rule id="5b6d9691">
+        <description>Created after removal of "Create Company" from Bank</description>
+        <accepts>Create-Company.html</accepts>
+    </rule>
+    <rule id="50016a92">
+        <description>Created after removal of "Update Company" from Bank</description>
+        <accepts>Update-Company.html</accepts>
+    </rule>
+    <rule id="18ee7ddf">
+        <description>Created after removal of "Get Countries" from Bank</description>
+        <accepts>Get-Countries.html</accepts>
+    </rule>
+    <rule id="66c634fa">
+        <description>Created after removal of "Get Country by Id" from Bank</description>
+        <accepts>Get-Country-by-Id.html</accepts>
+    </rule>
+    <rule id="3ebfd33">
+        <description>Created after removal of "Get Currencies" from Bank</description>
+        <accepts>Get-Currencies.html</accepts>
+    </rule>
+    <rule id="1c253747">
+        <description>Created after removal of "Get Currency by Id" from Bank</description>
+        <accepts>Get-Currency-by-Id.html</accepts>
+    </rule>
+    <rule id="5d51b12c">
+        <description>Created after removal of "Get Employees" from Bank</description>
+        <accepts>Get-Employees.html</accepts>
+    </rule>
+    <rule id="5a3948c7">
+        <description>Created after removal of "Get Employee by Id" from Bank</description>
+        <accepts>Get-Employee-by-Id.html</accepts>
+    </rule>
+    <rule id="78f8aa3">
+        <description>Created after removal of "Register Employee" from Bank</description>
+        <accepts>Register-Employee.html</accepts>
+    </rule>
+    <rule id="5302dc6">
+        <description>Created after removal of "Update Employee" from Bank</description>
+        <accepts>Update-Employee.html</accepts>
+    </rule>
+    <rule id="416e1d75">
+        <description>Created after removal of "Get Exchanges" from Bank</description>
+        <accepts>Get-Exchanges.html</accepts>
+    </rule>
+    <rule id="c1050da">
+        <description>Created after removal of "Get Exchange by Id" from Bank</description>
+        <accepts>Get-Exchange-by-Id.html</accepts>
+    </rule>
+    <rule id="16ad78af">
+        <description>Created after removal of "Get Exchange for Currencies" from Bank</description>
+        <accepts>Get-Exchange-for-Currencies.html</accepts>
+    </rule>
+    <rule id="c30bdaa">
+        <description>Created after removal of "Make Exchange" from Bank</description>
+        <accepts>Make-Exchange.html</accepts>
+    </rule>
+    <rule id="1b31e5db">
+        <description>Created after removal of "Update Exchange" from Bank</description>
+        <accepts>Update-Exchange.html</accepts>
+    </rule>
+    <rule id="5798eaab">
+        <description>Created after removal of "Get Users" from Bank</description>
+        <accepts>Get-Users.html</accepts>
+    </rule>
+    <rule id="5fcdf4fc">
+        <description>Created after removal of "Get User by Id" from Bank</description>
+        <accepts>Get-User-by-Id.html</accepts>
+    </rule>
+    <rule id="70cdc549">
+        <description>Created after removal of "User Login" from Bank</description>
+        <accepts>User-Login.html</accepts>
+    </rule>
+    <rule id="3d910a25">
+        <description>Created after removal of "Activate User" from Bank</description>
+        <accepts>Activate-User.html</accepts>
+    </rule>
+    <rule id="670ff06d">
+        <description>Created after removal of "Request User Password Reset" from Bank</description>
+        <accepts>Request-User-Password-Reset.html</accepts>
+    </rule>
+    <rule id="673bb366">
+        <description>Created after removal of "Reset User Password" from Bank</description>
+        <accepts>Reset-User-Password.html</accepts>
+    </rule>
 </rules>
