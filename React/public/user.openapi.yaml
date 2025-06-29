@@ -194,6 +194,29 @@ paths:
             text/json:
               schema:
                 $ref: '#/components/schemas/AccountResponse'
+  '/api/v1/accounts/{number}/number':
+    get:
+      tags:
+        - Account
+      parameters:
+        - name: number
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/AccountResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AccountResponse'
   '/api/v1/accounts/client/{id}':
     put:
       tags:
@@ -744,6 +767,11 @@ paths:
           in: query
           schema:
             $ref: '#/components/schemas/Role'
+        - name: Permissions
+          in: query
+          schema:
+            type: integer
+            format: int64
         - name: Ids
           in: query
           schema:
@@ -1181,6 +1209,11 @@ paths:
           in: query
           schema:
             $ref: '#/components/schemas/Role'
+        - name: Permissions
+          in: query
+          schema:
+            type: integer
+            format: int64
         - name: Ids
           in: query
           schema:
@@ -2273,6 +2306,11 @@ paths:
           in: query
           schema:
             $ref: '#/components/schemas/Role'
+        - name: Permissions
+          in: query
+          schema:
+            type: integer
+            format: int64
         - name: Ids
           in: query
           schema:
@@ -2593,12 +2631,12 @@ components:
           countries:
             - id: 7f3e7c12-a8b4-47f9-b5a7-123456789abc
               name: United States of America
-              createdAt: '2025-05-25T21:12:35.8086235+02:00'
-              modifiedAt: '2025-05-25T21:12:35.8086236+02:00'
+              createdAt: '2025-06-29T12:38:36.6481390+02:00'
+              modifiedAt: '2025-06-29T12:38:36.6481392+02:00'
           description: Zvanična valuta Sjedinjenih Američkih Država
           status: true
-          createdAt: '2025-05-25T21:12:35.8088544+02:00'
-          modifiedAt: '2025-05-25T21:12:35.8088571+02:00'
+          createdAt: '2025-06-29T12:38:36.6484745+02:00'
+          modifiedAt: '2025-06-29T12:38:36.6484763+02:00'
         employee:
           id: ae45452a-81fa-413b-9a3f-4e044ff13939
           firstName: Nikola
@@ -2614,14 +2652,14 @@ components:
           department: HR
           employed: true
           activated: true
-          createdAt: '2025-05-25T19:12:35.8096304+00:00'
-          modifiedAt: '2025-05-25T19:12:35.8096304+00:00'
+          createdAt: '2025-06-29T10:38:36.6497082+00:00'
+          modifiedAt: '2025-06-29T10:38:36.6497083+00:00'
         balance: 12000.75
         availableBalance: 8000.5
         dailyLimit: 1000
         monthlyLimit: 3000
-        createdAt: '2025-05-25T19:12:35.8026926+00:00'
-        modifiedAt: '2025-05-25T19:12:35.8026928+00:00'
+        createdAt: '2025-06-29T10:38:36.6431397+00:00'
+        modifiedAt: '2025-06-29T10:38:36.6431398+00:00'
     AccountCurrencyResponsePage:
       type: object
       properties:
@@ -2661,6 +2699,7 @@ components:
         - modifiedAt
         - monthlyLimit
         - name
+        - office
         - status
         - type
       type: object
@@ -2669,6 +2708,9 @@ components:
           type: string
           format: uuid
         accountNumber:
+          type: string
+          nullable: true
+        office:
           type: string
           nullable: true
         name:
@@ -2730,8 +2772,8 @@ components:
           address: Kralja Petra 12
           role: 3
           activated: true
-          createdAt: '2025-05-25T19:12:35.8078420+00:00'
-          modifiedAt: '2025-05-25T19:12:35.8078422+00:00'
+          createdAt: '2025-06-29T10:38:36.6471577+00:00'
+          modifiedAt: '2025-06-29T10:38:36.6471577+00:00'
         balance: 5000
         availableBalance: 4500.5
         dailyLimit: 2000
@@ -2751,8 +2793,8 @@ components:
           department: HR
           employed: true
           activated: true
-          createdAt: '2025-05-25T19:12:35.8096304+00:00'
-          modifiedAt: '2025-05-25T19:12:35.8096304+00:00'
+          createdAt: '2025-06-29T10:38:36.6497082+00:00'
+          modifiedAt: '2025-06-29T10:38:36.6497083+00:00'
         currency:
           id: 5efa312a-5ab6-4950-9579-0f605aeab4f8
           name: Dolar
@@ -2761,18 +2803,18 @@ components:
           countries:
             - id: 7f3e7c12-a8b4-47f9-b5a7-123456789abc
               name: United States of America
-              createdAt: '2025-05-25T21:12:35.8086235+02:00'
-              modifiedAt: '2025-05-25T21:12:35.8086236+02:00'
+              createdAt: '2025-06-29T12:38:36.6481390+02:00'
+              modifiedAt: '2025-06-29T12:38:36.6481392+02:00'
           description: Zvanična valuta Sjedinjenih Američkih Država
           status: true
-          createdAt: '2025-05-25T21:12:35.8088544+02:00'
-          modifiedAt: '2025-05-25T21:12:35.8088571+02:00'
+          createdAt: '2025-06-29T12:38:36.6484745+02:00'
+          modifiedAt: '2025-06-29T12:38:36.6484763+02:00'
         type:
           id: c3f7a5d4-e6b8-4d2a-a678-123456789abc
           name: Štedni račun
           code: SAV
-          createdAt: '2025-05-25T19:12:35.8054698+00:00'
-          modifiedAt: '2025-05-25T19:12:35.8054699+00:00'
+          createdAt: '2025-06-29T10:38:36.6446585+00:00'
+          modifiedAt: '2025-06-29T10:38:36.6446589+00:00'
         accountCurrencies:
           - id: d4e5f6a7-b8c9-40d1-a2b3-c4d5e6f78901
             account:
@@ -2786,12 +2828,12 @@ components:
               countries:
                 - id: 7f3e7c12-a8b4-47f9-b5a7-123456789abc
                   name: United States of America
-                  createdAt: '2025-05-25T21:12:35.8086235+02:00'
-                  modifiedAt: '2025-05-25T21:12:35.8086236+02:00'
+                  createdAt: '2025-06-29T12:38:36.6481390+02:00'
+                  modifiedAt: '2025-06-29T12:38:36.6481392+02:00'
               description: Zvanična valuta Sjedinjenih Američkih Država
               status: true
-              createdAt: '2025-05-25T21:12:35.8088544+02:00'
-              modifiedAt: '2025-05-25T21:12:35.8088571+02:00'
+              createdAt: '2025-06-29T12:38:36.6484745+02:00'
+              modifiedAt: '2025-06-29T12:38:36.6484763+02:00'
             employee:
               id: ae45452a-81fa-413b-9a3f-4e044ff13939
               firstName: Nikola
@@ -2807,19 +2849,19 @@ components:
               department: HR
               employed: true
               activated: true
-              createdAt: '2025-05-25T19:12:35.8096304+00:00'
-              modifiedAt: '2025-05-25T19:12:35.8096304+00:00'
+              createdAt: '2025-06-29T10:38:36.6497082+00:00'
+              modifiedAt: '2025-06-29T10:38:36.6497083+00:00'
             balance: 12000.75
             availableBalance: 8000.5
             dailyLimit: 1000
             monthlyLimit: 3000
-            createdAt: '2025-05-25T19:12:35.8026926+00:00'
-            modifiedAt: '2025-05-25T19:12:35.8026928+00:00'
+            createdAt: '2025-06-29T10:38:36.6431397+00:00'
+            modifiedAt: '2025-06-29T10:38:36.6431398+00:00'
         creationDate: '2023-05-15'
         expirationDate: '2033-05-15'
         status: true
-        createdAt: '2025-05-25T19:12:35.8051633+00:00'
-        modifiedAt: '2025-05-25T19:12:35.8051637+00:00'
+        createdAt: '2025-06-29T10:38:36.6441385+00:00'
+        modifiedAt: '2025-06-29T10:38:36.6441389+00:00'
     AccountResponsePage:
       type: object
       properties:
@@ -2887,8 +2929,8 @@ components:
         id: c3f7a5d4-e6b8-4d2a-a678-123456789abc
         name: Štedni račun
         code: SAV
-        createdAt: '2025-05-25T19:12:35.8054698+00:00'
-        modifiedAt: '2025-05-25T19:12:35.8054699+00:00'
+        createdAt: '2025-06-29T10:38:36.6446585+00:00'
+        modifiedAt: '2025-06-29T10:38:36.6446589+00:00'
     AccountTypeResponsePage:
       type: object
       properties:
@@ -3005,8 +3047,8 @@ components:
         type:
           id: 123e4567-e89b-12d3-a456-426614174000
           name: Credit Card
-          createdAt: '2025-05-25T19:12:35.8070042+00:00'
-          modifiedAt: '2025-05-25T19:12:35.8070045+00:00'
+          createdAt: '2025-06-29T10:38:36.6461514+00:00'
+          modifiedAt: '2025-06-29T10:38:36.6461515+00:00'
         account:
           id: 3f4b1e6e-a2f5-4e3b-8f88-2f70a6b42b19
           accountNumber: '222001112345678922'
@@ -3023,8 +3065,8 @@ components:
             address: Kralja Petra 12
             role: 3
             activated: true
-            createdAt: '2025-05-25T19:12:35.8078420+00:00'
-            modifiedAt: '2025-05-25T19:12:35.8078422+00:00'
+            createdAt: '2025-06-29T10:38:36.6471577+00:00'
+            modifiedAt: '2025-06-29T10:38:36.6471577+00:00'
           balance: 5000
           availableBalance: 4500.5
           dailyLimit: 2000
@@ -3044,8 +3086,8 @@ components:
             department: HR
             employed: true
             activated: true
-            createdAt: '2025-05-25T19:12:35.8096304+00:00'
-            modifiedAt: '2025-05-25T19:12:35.8096304+00:00'
+            createdAt: '2025-06-29T10:38:36.6497082+00:00'
+            modifiedAt: '2025-06-29T10:38:36.6497083+00:00'
           currency:
             id: 5efa312a-5ab6-4950-9579-0f605aeab4f8
             name: Dolar
@@ -3054,18 +3096,18 @@ components:
             countries:
               - id: 7f3e7c12-a8b4-47f9-b5a7-123456789abc
                 name: United States of America
-                createdAt: '2025-05-25T21:12:35.8086235+02:00'
-                modifiedAt: '2025-05-25T21:12:35.8086236+02:00'
+                createdAt: '2025-06-29T12:38:36.6481390+02:00'
+                modifiedAt: '2025-06-29T12:38:36.6481392+02:00'
             description: Zvanična valuta Sjedinjenih Američkih Država
             status: true
-            createdAt: '2025-05-25T21:12:35.8088544+02:00'
-            modifiedAt: '2025-05-25T21:12:35.8088571+02:00'
+            createdAt: '2025-06-29T12:38:36.6484745+02:00'
+            modifiedAt: '2025-06-29T12:38:36.6484763+02:00'
           type:
             id: c3f7a5d4-e6b8-4d2a-a678-123456789abc
             name: Štedni račun
             code: SAV
-            createdAt: '2025-05-25T19:12:35.8054698+00:00'
-            modifiedAt: '2025-05-25T19:12:35.8054699+00:00'
+            createdAt: '2025-06-29T10:38:36.6446585+00:00'
+            modifiedAt: '2025-06-29T10:38:36.6446589+00:00'
           accountCurrencies:
             - id: d4e5f6a7-b8c9-40d1-a2b3-c4d5e6f78901
               account:
@@ -3079,12 +3121,12 @@ components:
                 countries:
                   - id: 7f3e7c12-a8b4-47f9-b5a7-123456789abc
                     name: United States of America
-                    createdAt: '2025-05-25T21:12:35.8086235+02:00'
-                    modifiedAt: '2025-05-25T21:12:35.8086236+02:00'
+                    createdAt: '2025-06-29T12:38:36.6481390+02:00'
+                    modifiedAt: '2025-06-29T12:38:36.6481392+02:00'
                 description: Zvanična valuta Sjedinjenih Američkih Država
                 status: true
-                createdAt: '2025-05-25T21:12:35.8088544+02:00'
-                modifiedAt: '2025-05-25T21:12:35.8088571+02:00'
+                createdAt: '2025-06-29T12:38:36.6484745+02:00'
+                modifiedAt: '2025-06-29T12:38:36.6484763+02:00'
               employee:
                 id: ae45452a-81fa-413b-9a3f-4e044ff13939
                 firstName: Nikola
@@ -3100,27 +3142,27 @@ components:
                 department: HR
                 employed: true
                 activated: true
-                createdAt: '2025-05-25T19:12:35.8096304+00:00'
-                modifiedAt: '2025-05-25T19:12:35.8096304+00:00'
+                createdAt: '2025-06-29T10:38:36.6497082+00:00'
+                modifiedAt: '2025-06-29T10:38:36.6497083+00:00'
               balance: 12000.75
               availableBalance: 8000.5
               dailyLimit: 1000
               monthlyLimit: 3000
-              createdAt: '2025-05-25T19:12:35.8026926+00:00'
-              modifiedAt: '2025-05-25T19:12:35.8026928+00:00'
+              createdAt: '2025-06-29T10:38:36.6431397+00:00'
+              modifiedAt: '2025-06-29T10:38:36.6431398+00:00'
           creationDate: '2023-05-15'
           expirationDate: '2033-05-15'
           status: true
-          createdAt: '2025-05-25T19:12:35.8051633+00:00'
-          modifiedAt: '2025-05-25T19:12:35.8051637+00:00'
+          createdAt: '2025-06-29T10:38:36.6441385+00:00'
+          modifiedAt: '2025-06-29T10:38:36.6441389+00:00'
         number: 1234-5678-9876-5437
         name: Credit Card
         cVV: '123'
         expiresAt: '2028-05-31'
         limit: 5000
         status: true
-        createdAt: '2025-05-25T19:12:35.8067652+00:00'
-        modifiedAt: '2025-05-25T19:12:35.8067653+00:00'
+        createdAt: '2025-06-29T10:38:36.6459950+00:00'
+        modifiedAt: '2025-06-29T10:38:36.6459951+00:00'
     CardResponsePage:
       type: object
       properties:
@@ -3167,8 +3209,8 @@ components:
       example:
         id: 123e4567-e89b-12d3-a456-426614174000
         name: Credit Card
-        createdAt: '2025-05-25T19:12:35.8070042+00:00'
-        modifiedAt: '2025-05-25T19:12:35.8070045+00:00'
+        createdAt: '2025-06-29T10:38:36.6461514+00:00'
+        modifiedAt: '2025-06-29T10:38:36.6461515+00:00'
     CardUpdateLimitRequest:
       type: object
       properties:
@@ -3309,8 +3351,8 @@ components:
         accounts:
           - id: 3f4b1e6e-a2f5-4e3b-8f88-2f70a6b42b19
             accountNumber: '222001112345678922'
-        createdAt: '2025-05-25T19:12:35.8077947+00:00'
-        modifiedAt: '2025-05-25T19:12:35.8077951+00:00'
+        createdAt: '2025-06-29T10:38:36.6471089+00:00'
+        modifiedAt: '2025-06-29T10:38:36.6471091+00:00'
         activated: true
     ClientResponsePage:
       type: object
@@ -3404,8 +3446,8 @@ components:
         address: Kralja Petra 12
         role: 3
         activated: true
-        createdAt: '2025-05-25T19:12:35.8078420+00:00'
-        modifiedAt: '2025-05-25T19:12:35.8078422+00:00'
+        createdAt: '2025-06-29T10:38:36.6471577+00:00'
+        modifiedAt: '2025-06-29T10:38:36.6471577+00:00'
     ClientUpdateRequest:
       required:
         - activated
@@ -3607,10 +3649,10 @@ components:
           symbol: $
           description: Zvanična valuta Sjedinjenih Američkih Država
           status: true
-          createdAt: '2025-05-25T21:12:35.8088576+02:00'
-          modifiedAt: '2025-05-25T21:12:35.8088578+02:00'
-        createdAt: '2025-05-25T21:12:35.8086171+02:00'
-        modifiedAt: '2025-05-25T21:12:35.8086231+02:00'
+          createdAt: '2025-06-29T12:38:36.6484772+02:00'
+          modifiedAt: '2025-06-29T12:38:36.6484774+02:00'
+        createdAt: '2025-06-29T12:38:36.6481344+02:00'
+        modifiedAt: '2025-06-29T12:38:36.6481384+02:00'
     CountryResponsePage:
       type: object
       properties:
@@ -3657,8 +3699,8 @@ components:
       example:
         id: 7f3e7c12-a8b4-47f9-b5a7-123456789abc
         name: United States of America
-        createdAt: '2025-05-25T21:12:35.8086235+02:00'
-        modifiedAt: '2025-05-25T21:12:35.8086236+02:00'
+        createdAt: '2025-06-29T12:38:36.6481390+02:00'
+        modifiedAt: '2025-06-29T12:38:36.6481392+02:00'
     CurrencyResponse:
       required:
         - code
@@ -3709,12 +3751,12 @@ components:
         countries:
           - id: 7f3e7c12-a8b4-47f9-b5a7-123456789abc
             name: United States of America
-            createdAt: '2025-05-25T21:12:35.8086235+02:00'
-            modifiedAt: '2025-05-25T21:12:35.8086236+02:00'
+            createdAt: '2025-06-29T12:38:36.6481390+02:00'
+            modifiedAt: '2025-06-29T12:38:36.6481392+02:00'
         description: Zvanična valuta Sjedinjenih Američkih Država
         status: true
-        createdAt: '2025-05-25T21:12:35.8088544+02:00'
-        modifiedAt: '2025-05-25T21:12:35.8088571+02:00'
+        createdAt: '2025-06-29T12:38:36.6484745+02:00'
+        modifiedAt: '2025-06-29T12:38:36.6484763+02:00'
     CurrencySimpleResponse:
       required:
         - code
@@ -3758,8 +3800,8 @@ components:
         symbol: $
         description: Zvanična valuta Sjedinjenih Američkih Država
         status: true
-        createdAt: '2025-05-25T21:12:35.8088576+02:00'
-        modifiedAt: '2025-05-25T21:12:35.8088578+02:00'
+        createdAt: '2025-06-29T12:38:36.6484772+02:00'
+        modifiedAt: '2025-06-29T12:38:36.6484774+02:00'
     EmployeeCreateRequest:
       required:
         - address
@@ -3907,8 +3949,8 @@ components:
         department: HR
         employed: true
         activated: true
-        createdAt: '2025-05-25T19:12:35.8096054+00:00'
-        modifiedAt: '2025-05-25T19:12:35.8096057+00:00'
+        createdAt: '2025-06-29T10:38:36.6496530+00:00'
+        modifiedAt: '2025-06-29T10:38:36.6496532+00:00'
     EmployeeResponsePage:
       type: object
       properties:
@@ -4015,8 +4057,8 @@ components:
         department: HR
         employed: true
         activated: true
-        createdAt: '2025-05-25T19:12:35.8096304+00:00'
-        modifiedAt: '2025-05-25T19:12:35.8096304+00:00'
+        createdAt: '2025-06-29T10:38:36.6497082+00:00'
+        modifiedAt: '2025-06-29T10:38:36.6497083+00:00'
     EmployeeUpdateRequest:
       required:
         - activated
@@ -4135,8 +4177,8 @@ components:
           symbol: $
           description: Zvanična valuta Sjedinjenih Američkih Država
           status: true
-          createdAt: '2025-05-25T21:12:35.8088576+02:00'
-          modifiedAt: '2025-05-25T21:12:35.8088578+02:00'
+          createdAt: '2025-06-29T12:38:36.6484772+02:00'
+          modifiedAt: '2025-06-29T12:38:36.6484774+02:00'
         currencyTo:
           id: 5efa312a-5ab6-4950-9579-0f605aeab4f8
           name: Dolar
@@ -4144,13 +4186,13 @@ components:
           symbol: $
           description: Zvanična valuta Sjedinjenih Američkih Država
           status: true
-          createdAt: '2025-05-25T21:12:35.8088576+02:00'
-          modifiedAt: '2025-05-25T21:12:35.8088578+02:00'
+          createdAt: '2025-06-29T12:38:36.6484772+02:00'
+          modifiedAt: '2025-06-29T12:38:36.6484774+02:00'
         commission: 0.07
         rate: 0.85
         inverseRate: 1.18
-        createdAt: '2025-05-25T19:12:35.8099537+00:00'
-        modifiedAt: '2025-05-25T19:12:35.8099538+00:00'
+        createdAt: '2025-06-29T10:38:36.6502902+00:00'
+        modifiedAt: '2025-06-29T10:38:36.6502904+00:00'
     ExchangeUpdateRequest:
       required:
         - commission
@@ -4252,8 +4294,8 @@ components:
               address: Kralja Petra 12
               role: 3
               activated: true
-              createdAt: '2025-05-25T19:12:35.8078420+00:00'
-              modifiedAt: '2025-05-25T19:12:35.8078422+00:00'
+              createdAt: '2025-06-29T10:38:36.6471577+00:00'
+              modifiedAt: '2025-06-29T10:38:36.6471577+00:00'
             balance: 5000
             availableBalance: 4500.5
             dailyLimit: 2000
@@ -4273,8 +4315,8 @@ components:
               department: HR
               employed: true
               activated: true
-              createdAt: '2025-05-25T19:12:35.8096304+00:00'
-              modifiedAt: '2025-05-25T19:12:35.8096304+00:00'
+              createdAt: '2025-06-29T10:38:36.6497082+00:00'
+              modifiedAt: '2025-06-29T10:38:36.6497083+00:00'
             currency:
               id: 5efa312a-5ab6-4950-9579-0f605aeab4f8
               name: Dolar
@@ -4283,18 +4325,18 @@ components:
               countries:
                 - id: 7f3e7c12-a8b4-47f9-b5a7-123456789abc
                   name: United States of America
-                  createdAt: '2025-05-25T21:12:35.8086235+02:00'
-                  modifiedAt: '2025-05-25T21:12:35.8086236+02:00'
+                  createdAt: '2025-06-29T12:38:36.6481390+02:00'
+                  modifiedAt: '2025-06-29T12:38:36.6481392+02:00'
               description: Zvanična valuta Sjedinjenih Američkih Država
               status: true
-              createdAt: '2025-05-25T21:12:35.8088544+02:00'
-              modifiedAt: '2025-05-25T21:12:35.8088571+02:00'
+              createdAt: '2025-06-29T12:38:36.6484745+02:00'
+              modifiedAt: '2025-06-29T12:38:36.6484763+02:00'
             type:
               id: c3f7a5d4-e6b8-4d2a-a678-123456789abc
               name: Štedni račun
               code: SAV
-              createdAt: '2025-05-25T19:12:35.8054698+00:00'
-              modifiedAt: '2025-05-25T19:12:35.8054699+00:00'
+              createdAt: '2025-06-29T10:38:36.6446585+00:00'
+              modifiedAt: '2025-06-29T10:38:36.6446589+00:00'
             accountCurrencies:
               - id: d4e5f6a7-b8c9-40d1-a2b3-c4d5e6f78901
                 account:
@@ -4308,12 +4350,12 @@ components:
                   countries:
                     - id: 7f3e7c12-a8b4-47f9-b5a7-123456789abc
                       name: United States of America
-                      createdAt: '2025-05-25T21:12:35.8086235+02:00'
-                      modifiedAt: '2025-05-25T21:12:35.8086236+02:00'
+                      createdAt: '2025-06-29T12:38:36.6481390+02:00'
+                      modifiedAt: '2025-06-29T12:38:36.6481392+02:00'
                   description: Zvanična valuta Sjedinjenih Američkih Država
                   status: true
-                  createdAt: '2025-05-25T21:12:35.8088544+02:00'
-                  modifiedAt: '2025-05-25T21:12:35.8088571+02:00'
+                  createdAt: '2025-06-29T12:38:36.6484745+02:00'
+                  modifiedAt: '2025-06-29T12:38:36.6484763+02:00'
                 employee:
                   id: ae45452a-81fa-413b-9a3f-4e044ff13939
                   firstName: Nikola
@@ -4329,19 +4371,19 @@ components:
                   department: HR
                   employed: true
                   activated: true
-                  createdAt: '2025-05-25T19:12:35.8096304+00:00'
-                  modifiedAt: '2025-05-25T19:12:35.8096304+00:00'
+                  createdAt: '2025-06-29T10:38:36.6497082+00:00'
+                  modifiedAt: '2025-06-29T10:38:36.6497083+00:00'
                 balance: 12000.75
                 availableBalance: 8000.5
                 dailyLimit: 1000
                 monthlyLimit: 3000
-                createdAt: '2025-05-25T19:12:35.8026926+00:00'
-                modifiedAt: '2025-05-25T19:12:35.8026928+00:00'
+                createdAt: '2025-06-29T10:38:36.6431397+00:00'
+                modifiedAt: '2025-06-29T10:38:36.6431398+00:00'
             creationDate: '2023-05-15'
             expirationDate: '2033-05-15'
             status: true
-            createdAt: '2025-05-25T19:12:35.8051633+00:00'
-            modifiedAt: '2025-05-25T19:12:35.8051637+00:00'
+            createdAt: '2025-06-29T10:38:36.6441385+00:00'
+            modifiedAt: '2025-06-29T10:38:36.6441389+00:00'
           amount: 50000
           period: 60
           creationDate: '2024-03-05'
@@ -4354,24 +4396,24 @@ components:
             countries:
               - id: 7f3e7c12-a8b4-47f9-b5a7-123456789abc
                 name: United States of America
-                createdAt: '2025-05-25T21:12:35.8086235+02:00'
-                modifiedAt: '2025-05-25T21:12:35.8086236+02:00'
+                createdAt: '2025-06-29T12:38:36.6481390+02:00'
+                modifiedAt: '2025-06-29T12:38:36.6481392+02:00'
             description: Zvanična valuta Sjedinjenih Američkih Država
             status: true
-            createdAt: '2025-05-25T21:12:35.8088544+02:00'
-            modifiedAt: '2025-05-25T21:12:35.8088571+02:00'
+            createdAt: '2025-06-29T12:38:36.6484745+02:00'
+            modifiedAt: '2025-06-29T12:38:36.6484763+02:00'
           status: 1
           interestType: 2
           nominalInstallmentRate: 0
           remainingAmount: 0
-          createdAt: '2025-05-25T19:12:35.8127560+00:00'
-          modifiedAt: '2025-05-25T19:12:35.8127564+00:00'
+          createdAt: '2025-06-29T10:38:36.6539462+00:00'
+          modifiedAt: '2025-06-29T10:38:36.6539462+00:00'
         interestRate: 5
         expectedDueDate: '2025-06-15'
         actualDueDate: '2025-06-20'
         status: 0
-        createdAt: '2025-05-25T19:12:35.8117232+00:00'
-        modifiedAt: '2025-05-25T19:12:35.8117233+00:00'
+        createdAt: '2025-06-29T10:38:36.6529057+00:00'
+        modifiedAt: '2025-06-29T10:38:36.6529058+00:00'
     InstallmentResponsePage:
       type: object
       properties:
@@ -4511,8 +4553,8 @@ components:
             address: Kralja Petra 12
             role: 3
             activated: true
-            createdAt: '2025-05-25T19:12:35.8078420+00:00'
-            modifiedAt: '2025-05-25T19:12:35.8078422+00:00'
+            createdAt: '2025-06-29T10:38:36.6471577+00:00'
+            modifiedAt: '2025-06-29T10:38:36.6471577+00:00'
           balance: 5000
           availableBalance: 4500.5
           dailyLimit: 2000
@@ -4532,8 +4574,8 @@ components:
             department: HR
             employed: true
             activated: true
-            createdAt: '2025-05-25T19:12:35.8096304+00:00'
-            modifiedAt: '2025-05-25T19:12:35.8096304+00:00'
+            createdAt: '2025-06-29T10:38:36.6497082+00:00'
+            modifiedAt: '2025-06-29T10:38:36.6497083+00:00'
           currency:
             id: 5efa312a-5ab6-4950-9579-0f605aeab4f8
             name: Dolar
@@ -4542,18 +4584,18 @@ components:
             countries:
               - id: 7f3e7c12-a8b4-47f9-b5a7-123456789abc
                 name: United States of America
-                createdAt: '2025-05-25T21:12:35.8086235+02:00'
-                modifiedAt: '2025-05-25T21:12:35.8086236+02:00'
+                createdAt: '2025-06-29T12:38:36.6481390+02:00'
+                modifiedAt: '2025-06-29T12:38:36.6481392+02:00'
             description: Zvanična valuta Sjedinjenih Američkih Država
             status: true
-            createdAt: '2025-05-25T21:12:35.8088544+02:00'
-            modifiedAt: '2025-05-25T21:12:35.8088571+02:00'
+            createdAt: '2025-06-29T12:38:36.6484745+02:00'
+            modifiedAt: '2025-06-29T12:38:36.6484763+02:00'
           type:
             id: c3f7a5d4-e6b8-4d2a-a678-123456789abc
             name: Štedni račun
             code: SAV
-            createdAt: '2025-05-25T19:12:35.8054698+00:00'
-            modifiedAt: '2025-05-25T19:12:35.8054699+00:00'
+            createdAt: '2025-06-29T10:38:36.6446585+00:00'
+            modifiedAt: '2025-06-29T10:38:36.6446589+00:00'
           accountCurrencies:
             - id: d4e5f6a7-b8c9-40d1-a2b3-c4d5e6f78901
               account:
@@ -4567,12 +4609,12 @@ components:
                 countries:
                   - id: 7f3e7c12-a8b4-47f9-b5a7-123456789abc
                     name: United States of America
-                    createdAt: '2025-05-25T21:12:35.8086235+02:00'
-                    modifiedAt: '2025-05-25T21:12:35.8086236+02:00'
+                    createdAt: '2025-06-29T12:38:36.6481390+02:00'
+                    modifiedAt: '2025-06-29T12:38:36.6481392+02:00'
                 description: Zvanična valuta Sjedinjenih Američkih Država
                 status: true
-                createdAt: '2025-05-25T21:12:35.8088544+02:00'
-                modifiedAt: '2025-05-25T21:12:35.8088571+02:00'
+                createdAt: '2025-06-29T12:38:36.6484745+02:00'
+                modifiedAt: '2025-06-29T12:38:36.6484763+02:00'
               employee:
                 id: ae45452a-81fa-413b-9a3f-4e044ff13939
                 firstName: Nikola
@@ -4588,19 +4630,19 @@ components:
                 department: HR
                 employed: true
                 activated: true
-                createdAt: '2025-05-25T19:12:35.8096304+00:00'
-                modifiedAt: '2025-05-25T19:12:35.8096304+00:00'
+                createdAt: '2025-06-29T10:38:36.6497082+00:00'
+                modifiedAt: '2025-06-29T10:38:36.6497083+00:00'
               balance: 12000.75
               availableBalance: 8000.5
               dailyLimit: 1000
               monthlyLimit: 3000
-              createdAt: '2025-05-25T19:12:35.8026926+00:00'
-              modifiedAt: '2025-05-25T19:12:35.8026928+00:00'
+              createdAt: '2025-06-29T10:38:36.6431397+00:00'
+              modifiedAt: '2025-06-29T10:38:36.6431398+00:00'
           creationDate: '2023-05-15'
           expirationDate: '2033-05-15'
           status: true
-          createdAt: '2025-05-25T19:12:35.8051633+00:00'
-          modifiedAt: '2025-05-25T19:12:35.8051637+00:00'
+          createdAt: '2025-06-29T10:38:36.6441385+00:00'
+          modifiedAt: '2025-06-29T10:38:36.6441389+00:00'
         amount: 50000
         period: 60
         creationDate: '2024-03-05'
@@ -4613,18 +4655,18 @@ components:
           countries:
             - id: 7f3e7c12-a8b4-47f9-b5a7-123456789abc
               name: United States of America
-              createdAt: '2025-05-25T21:12:35.8086235+02:00'
-              modifiedAt: '2025-05-25T21:12:35.8086236+02:00'
+              createdAt: '2025-06-29T12:38:36.6481390+02:00'
+              modifiedAt: '2025-06-29T12:38:36.6481392+02:00'
           description: Zvanična valuta Sjedinjenih Američkih Država
           status: true
-          createdAt: '2025-05-25T21:12:35.8088544+02:00'
-          modifiedAt: '2025-05-25T21:12:35.8088571+02:00'
+          createdAt: '2025-06-29T12:38:36.6484745+02:00'
+          modifiedAt: '2025-06-29T12:38:36.6484763+02:00'
         status: 1
         interestType: 2
         nominalInstallmentRate: 0
         remainingAmount: 0
-        createdAt: '2025-05-25T19:12:35.8127560+00:00'
-        modifiedAt: '2025-05-25T19:12:35.8127564+00:00'
+        createdAt: '2025-06-29T10:38:36.6539462+00:00'
+        modifiedAt: '2025-06-29T10:38:36.6539462+00:00'
     LoanResponsePage:
       type: object
       properties:
@@ -4796,8 +4838,8 @@ components:
         id: 9a25d56c-5244-4b5a-b39d-d07b0e1be150
         name: Platna transakcija
         code: '289'
-        createdAt: '2025-05-25T19:12:35.8131003+00:00'
-        modifiedAt: '2025-05-25T19:12:35.8131006+00:00'
+        createdAt: '2025-06-29T10:38:36.6542973+00:00'
+        modifiedAt: '2025-06-29T10:38:36.6542974+00:00'
     TransactionCodeResponsePage:
       type: object
       properties:
@@ -4842,6 +4884,9 @@ components:
         amount:
           type: number
           format: double
+        profit:
+          type: number
+          format: double
         codeId:
           type: string
           format: uuid
@@ -4858,12 +4903,12 @@ components:
           nullable: true
       additionalProperties: false
       example:
-        fromAccountNumber: '0000000000001'
+        fromAccountNumber: '222000000000000111'
         fromCurrencyId: 88bfe7f0-8f74-42f7-b6ba-07b3145da989
-        toAccountNumber: '000000003'
+        toAccountNumber: '222000000000000331'
         toCurrencyId: 6842a5fa-eee4-4438-bcff-5217b6ac6ace
         amount: 10.05
-        codeId: bb27c75f-4280-48d2-b111-e0dae9a430d5
+        codeId: 2b170aad-9572-498d-a92a-63cb58ea59c3
         referenceNumber: '2345454333'
         purpose: Placanje fakture
     TransactionCreateResponse:
@@ -4908,13 +4953,13 @@ components:
           id: 9a25d56c-5244-4b5a-b39d-d07b0e1be150
           name: Platna transakcija
           code: '289'
-          createdAt: '2025-05-25T19:12:35.8131003+00:00'
-          modifiedAt: '2025-05-25T19:12:35.8131006+00:00'
+          createdAt: '2025-06-29T10:38:36.6542973+00:00'
+          modifiedAt: '2025-06-29T10:38:36.6542974+00:00'
         referenceNumber: '2345454333'
         purpose: Placanje fakture
         status: 5
-        createdAt: '2025-05-25T19:12:35.8137738+00:00'
-        modifiedAt: '2025-05-25T19:12:35.8137739+00:00'
+        createdAt: '2025-06-29T10:38:36.6548054+00:00'
+        modifiedAt: '2025-06-29T10:38:36.6548054+00:00'
     TransactionResponse:
       required:
         - code
@@ -4979,12 +5024,12 @@ components:
           countries:
             - id: 7f3e7c12-a8b4-47f9-b5a7-123456789abc
               name: United States of America
-              createdAt: '2025-05-25T21:12:35.8086235+02:00'
-              modifiedAt: '2025-05-25T21:12:35.8086236+02:00'
+              createdAt: '2025-06-29T12:38:36.6481390+02:00'
+              modifiedAt: '2025-06-29T12:38:36.6481392+02:00'
           description: Zvanična valuta Sjedinjenih Američkih Država
           status: true
-          createdAt: '2025-05-25T21:12:35.8088544+02:00'
-          modifiedAt: '2025-05-25T21:12:35.8088571+02:00'
+          createdAt: '2025-06-29T12:38:36.6484745+02:00'
+          modifiedAt: '2025-06-29T12:38:36.6484763+02:00'
         toAccount:
           id: 3f4b1e6e-a2f5-4e3b-8f88-2f70a6b42b19
           accountNumber: '222001112345678922'
@@ -4996,25 +5041,25 @@ components:
           countries:
             - id: 7f3e7c12-a8b4-47f9-b5a7-123456789abc
               name: United States of America
-              createdAt: '2025-05-25T21:12:35.8086235+02:00'
-              modifiedAt: '2025-05-25T21:12:35.8086236+02:00'
+              createdAt: '2025-06-29T12:38:36.6481390+02:00'
+              modifiedAt: '2025-06-29T12:38:36.6481392+02:00'
           description: Zvanična valuta Sjedinjenih Američkih Država
           status: true
-          createdAt: '2025-05-25T21:12:35.8088544+02:00'
-          modifiedAt: '2025-05-25T21:12:35.8088571+02:00'
+          createdAt: '2025-06-29T12:38:36.6484745+02:00'
+          modifiedAt: '2025-06-29T12:38:36.6484763+02:00'
         fromAmount: 1000
         toAmount: 950
         code:
           id: 9a25d56c-5244-4b5a-b39d-d07b0e1be150
           name: Platna transakcija
           code: '289'
-          createdAt: '2025-05-25T19:12:35.8131003+00:00'
-          modifiedAt: '2025-05-25T19:12:35.8131006+00:00'
+          createdAt: '2025-06-29T10:38:36.6542973+00:00'
+          modifiedAt: '2025-06-29T10:38:36.6542974+00:00'
         referenceNumber: '2345454333'
         purpose: Placanje fakture
         status: 5
-        createdAt: '2025-05-25T19:12:35.8137732+00:00'
-        modifiedAt: '2025-05-25T19:12:35.8137734+00:00'
+        createdAt: '2025-06-29T10:38:36.6548049+00:00'
+        modifiedAt: '2025-06-29T10:38:36.6548049+00:00'
     TransactionResponsePage:
       type: object
       properties:
@@ -5107,13 +5152,13 @@ components:
           address: Kralja Petra 12
           role: 3
           activated: true
-          createdAt: '2025-05-25T19:12:35.8078420+00:00'
-          modifiedAt: '2025-05-25T19:12:35.8078422+00:00'
+          createdAt: '2025-06-29T10:38:36.6471577+00:00'
+          modifiedAt: '2025-06-29T10:38:36.6471577+00:00'
         name: Slavko RSD
         accountNumber: '11111'
         deleted: false
-        createdAt: '2025-05-25T19:12:35.8146359+00:00'
-        modifiedAt: '2025-05-25T19:12:35.8146364+00:00'
+        createdAt: '2025-06-29T10:38:36.6570456+00:00'
+        modifiedAt: '2025-06-29T10:38:36.6570460+00:00'
     TransactionTemplateResponsePage:
       type: object
       properties:
